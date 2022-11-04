@@ -62,6 +62,10 @@ body {
   margin-left: 50px;
 }
 
+.nav-span-a-logout{
+  margin-top: 160%;
+}
+
 #main {
   transition: margin-left .5s;
   padding: 16px;
@@ -70,6 +74,10 @@ body {
 @media screen and (max-height: 700px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 10pt;}
+
+  .nav-span-a-logout{
+    margin-top: 145%;
+}
 }
 </style>
 </head>
@@ -89,7 +97,7 @@ body {
       <span class="span-title">Manage</span>
       <a href="history.php">History of Report</a>
     </div>
-    <div class="nav-span-a fixed-bottom mx-5 mb-3">
+    <div class="nav-span-a nav-span-a-logout mx-5 mb-3">
       <a href=""><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
     </div>
   </div>

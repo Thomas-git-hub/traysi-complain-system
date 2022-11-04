@@ -19,11 +19,11 @@
         <header class="head my-3">
             <nav class="navbar navbar-expand-lg navbar-light head__custom-nav">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <!-- <img src="assets/png/bnhs.png" alt="BNHS"> -->
+                    <img src="assets/png/cs-logo.png" alt="#">
                     <span class="span-nav-title">Traysi: <small>Complain & Report MS</small></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                    <span><img src="assets/png/burger.png" alt=""></span>
+                    <span><img src="assets/png/burger-wht-bg.png" alt=""></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">

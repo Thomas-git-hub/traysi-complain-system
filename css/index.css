@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+body{
+	font-family: 'Montserrat', sans-serif;
+	background-color: #f8f6fd;
+	/*background: rgb(0,255,247);
+	background: radial-gradient(circle, rgba(0,255,247,1) 0%, rgba(45,151,233,1) 49%, rgba(0,59,99,1) 100%);*/
+}
+
+/*login card*/
+.card-header-login{
+	background: rgb(0,82,193);
+	background: linear-gradient(90deg, rgba(0,82,193,1) 0%, rgba(0,228,255,1) 50%, rgba(0,255,222,1) 100%);	
+	border-radius: 16px;
+}
+
+.card-type-login:hover{
+	box-shadow: -1px -1px 15px 5px rgba(0,9,255,0.27);
+	-webkit-box-shadow: -1px -1px 15px 5px rgba(0,9,255,0.27);
+	-moz-box-shadow: -1px -1px 15px 5px rgba(0,9,255,0.27);
+}
+
+
+/*end of login card*/
+
+.a-card{
+	width: 25rem;
+	text-decoration: none;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+}
+.bx-user-circle{
+	font-size: 100px;
+	color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+}
+
+.bxs-graduation{
+	font-size: 100px;
+	color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+}
+
+.bx-street-view{
+	font-size: 100px;
+	color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+}
+
+.login-card-title{
+	color: #1261a0;
+	font-size: 100%;
+}
+.text-label{
+	color: #000033;
+}
+
+.bxs-user-circle{
+	font-size: 45px;
+	color: #072f5f;
+}
+.bxs-lock-open{
+	font-size: 45px;
+	color: #072f5f;
+}
+
+.card-login{
+	background-color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	width: 40rem;
+}
+
+.bx-arrow-back{
+	font-size: 35px;
+	color: #3895d3 !important;
+}
+.bx-arrow-back:hover{
+	color: #072f5f !important;
+	font-size: 35px;
+}
+
+.card-registration{
+	background-color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+
+	width: 60rem;
+}
+
+.card-header{
+	background-color: transparent;
+	/*background: linear-gradient(90deg, rgba(0,82,193,1) 0%, rgba(0,228,255,1) 50%, rgba(0,255,222,1) 100%);	*/
+	color: #000033;
+	border-bottom: 1px solid #3895d3;
+
+}
+
+.lbl-form{
+	color: #fff;
+}
+
+.btn-submit{
+	width: 300px;
+	color: #f1f1f1;
+	background: linear-gradient(90deg, rgba(0,82,193,1) 0%, rgba(0,228,255,1) 50%, rgba(0,255,222,1) 100%);
+	border: none;
+}
+
+.btn-submit:hover{
+	color: #000000;
+	background-color: #072f5f;
+	border: 1px solid #000000;
+}
+
+.card-footer{
+	background-color: transparent;
+	border-top: 1px solid #3895d3
+}
+
+.col-img{
+	background: rgb(88,204,237);
+	background: linear-gradient(180deg, rgba(88,204,237,1) 28%, rgba(56,149,211,1) 68%, rgba(18,97,160,1) 100%);
+}
+
+.col-img-title{
+	color: #ffffff;
+}
+
+.h6-system-title{
+	color: #072f5f;
+	font-size: 180%;
+	font-weight: bold;
+}
+
+.h3-login-title{
+	font-size: 100%;
+}
+
+.p-footer{
+	font-size: 60%;
+}
+
+@media screen and (max-width: 650px){
+
+.row-login-card{
+	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+}
+.a-card{
+	width: 50rem;
+	text-decoration: none;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+}
+
+.bx-user-circle{
+	font-size: 50px;
+	color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+}
+
+.bxs-graduation{
+	font-size: 50px;
+	color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+}
+
+.bx-street-view{
+	font-size: 50px;
+	color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+}
+
+.h6-system-title{
+	color: #072f5f;
+	font-size: 90%;
+	font-weight: bold;
+}
+
+.card-login{
+		/* From https://css.glass */
+	background-color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	width: 20rem;
+}
+
+.card-registration{
+	/* From https://css.glass */
+	background-color: #ffff;
+	box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+	-moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.42);
+
+	width: 20rem;
+}
+
+
+.card-header{
+	background-color: transparent;
+	color: #000033;
+	border-bottom: 1px solid #3895d3;
+}
+
+
+.btn-submit{
+	width: 150px;
+	color: #f1f1f1;
+	background-color: #1261a0;
+	border: none;
+}
+
+.card-footer{
+	background-color: transparent;
+}
+
+.btn-submit:hover{
+	color: #ffffff;
+	background-color: #072f5f;
+	border: none;
+}
+
+.row-reg-form{
+    display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+}
+}
