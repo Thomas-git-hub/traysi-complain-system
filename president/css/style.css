@@ -68,14 +68,20 @@ body {
   background-color: #3f3d56;
 }
 
-.h1-card-president{
+.h1-card-report{
   color: #f0ff00;
   font-size: 12pt;
   font-weight: bold;
 }
 
-.h1-card-driver{
+.h1-card-active{
   color: #3198f3;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.h1-card-inactive{
+  color: #ff0000;
   font-size: 12pt;
   font-weight: bold;
 }
@@ -158,12 +164,12 @@ tbody tr:hover{
   color: #00328f;
 }
 
-.bi-trash3-fill{
+.bi-dash-circle-fill{
   color: #ff0000;
   font-size: 14pt;
 }
 
-.bi-trash3-fill:hover{
+.bi-dash-circle-fill:hover{
   color: #9b0000;
 }
 
@@ -214,6 +220,52 @@ tbody tr:hover{
   border: none;
 }
 
+.bi-arrow-left{
+  font-size: 28px;
+}
+
+.title-message{
+  color: #3198f5;
+  font-weight: 900;
+  font-size: 12pt;
+}
+
+.card-view-message{
+  background-color: #fff;
+  padding: 20px;
+  border: none;
+  width: 48rem;
+}
+
+.message-date-time{
+  font-size: 9pt;
+  color: #9b9b9b;
+}
+
+.h1-view-mes-con{
+  margin-top: 2%;
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+.inner-card{
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #f6f8fc;
+  border: none;
+}
+
+.attached-image-title{
+  font-size: 10pt;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.view-message-image {
+  width: 100%;
+  height: auto;
+}
+
 @media only screen and (max-width: 600px) {
   .a-mid-nav{
     margin-top: 15px;
@@ -258,6 +310,11 @@ tbody tr:hover{
 
   .btn-disable{
     margin-top: 3px;
+  }
+
+  .inner-card{
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
 }
