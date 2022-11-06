@@ -66,19 +66,24 @@
         <div class="modal-body">
           <div class="form-group mt-3">
             <i class="bi bi-geo-alt-fill mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Toda">
+            <select class="form-control" id="exampleFormControlSelect1" >
+              <option selected="true" disabled="disabled">Assign Toda</option>
+              <option value="">Toda1</option>
+              <option value="">Toda2</option>
+              <option value="">Toda3</option>
+            </select>
           </div>
           <div class="form-group mt-3">
-            <i class="bi bi-pin-map mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="From">
+            <i class="bi bi-person-circle mx-2 mb-1"></i>
+            <input type="text" class="form-control" id="" placeholder="Full Name" required>
           </div>
           <div class="form-group mt-3">
-            <i class="bi bi-pin-map-fill mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="To">
+            <i class="bi bi-telephone-fill mx-2 mb-1"></i>
+            <input type="text" class="form-control" id="contactField" name="phone" onkeyup=" return validatephone(this.value);" placeholder="Contact (09)" required>
           </div>
           <div class="form-group mt-3">
-            <i class="bi bi-palette-fill mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Color">
+            <i class="bi bi-envelope-fill mx-2 mb-1"></i>
+            <input type="email" class="form-control" id="" placeholder="@email.com" required>
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
@@ -104,6 +109,26 @@
 <script type="text/javascript" src="../js/vfs_fonts.js"></script>
 <script type="text/javascript" src="../js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="../js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    function validatephone(phone)
+  	{
+  		phone = phone.replace(/[^0-9]/g,'');
+  		$("#contactField").val(phone);
+  		if( phone == '' || !phone.match(/^0[0-9]{10}$/) )
+  			{
+  				$("#contactField").css({'background':'#FFEDEF' , 'border':'solid 1px red'});
+  				
+  				return false;
+  			}
+  		else
+  			{
+  				$("#contactField").css({'background':'#99FF99' , 'border':'solid 1px #99FF99'});
+  			return true;	
+  			}
+      }
+  </script>
+
 <script>
   $(document).ready(function () {
         $('#datatable').DataTable();

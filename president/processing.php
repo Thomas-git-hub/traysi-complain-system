@@ -19,7 +19,7 @@
 <?php include_once("includes/sidenav.php") ?>
 
 <div class="container">
-  <h1 class="page-title"><i class="bi bi-exclamation-triangle-fill"></i>&nbsp;</i>R e p o r t &nbsp;&nbsp;H i s t o r y</h1>
+  <h1 class="page-title"><i class="bi bi-exclamation-triangle-fill"></i>&nbsp;</i>R e p o r t &nbsp;&nbsp;H i s t o r y &nbsp;&nbsp;P r o c e s s i n g</h1>
 
     <div class="row table mt-5">
       <table id="datatable" class="table inner-table display">
@@ -29,7 +29,6 @@
                     <th>Message</th>
                     <th>Date</th>
                     <th>Status</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,10 +37,6 @@
                     <td><a href="view-message.php">I hate the driver</a></td>
                     <td>11/04/2022</td>
                     <td>Processing</td>
-                    <td>
-                      <button><i class="bi bi-eye-fill"></i></button>
-                      <button><i class="bi bi-check-circle-fill"></i></button>
-                    </td>
                 </tr>
             </tbody>
         </table>

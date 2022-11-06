@@ -52,45 +52,6 @@
         <h1 class="attached-image-title">No Attachment</h1>
         <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
       </div>
-      <div class="row">
-        <div class="d-flex flex-row">
-          <button class="btn btn-respond" data-toggle="modal" data-target="#sendMessage"><i class="bi bi-send-fill">&nbsp;</i>Send Message</button>
-          <button class="btn btn-respond"><i class="bi bi-check-circle-fill">&nbsp;</i>Process</button>
-          <!-- NOTE! when process button is clicked, the page will be redirected to processing page (processing.php) -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- modal -->
-
-<!-- Update Criteria -->
-<div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">U p d a t e &nbsp;&nbsp; C r i t e r i a</h5>
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-      </div>
-      <form action=""  method="post" id="profFrm" onsubmit="">
-        <div class="modal-body">
-          <div class="form-group mt-3">
-            <h1 class="h1-view-mes-con">To:&nbsp;&nbsp;<small style="font-weight: normal; font-style: italic;">petergriffin@gmail.com</small></h1>
-            <!-- <input type="email" class="form-control" id="" aria-describedby="" placeholder=""> -->
-          </div>
-          <div class="form-group mt-3">
-            <i class="bi bi-reply-fill mx-2"></i>
-            <textarea class="form-control" id="" rows="3" placeholder="Message"></textarea>
-          </div>
-
-          <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" class="modal-btn-upd">Send</button>
-          </div>
-      </form>
     </div>
   </div>
 </div>

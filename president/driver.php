@@ -31,7 +31,8 @@
                 <tr>
                     <th>Name</th>
                     <th>Plate No.</th>
-                    <th>Contact No.</th>
+                    <th class="data-hidden">Contact No.</th>
+                    <th>Email</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -40,7 +41,8 @@
                 <tr> 
                     <td>Peter Griffin</td>
                     <td>plateno01</td>
-                    <td>09156748575</td>
+                    <td class="data-hidden">09156748575</td>
+                    <td>driver@gmail.com</td>
                     <td>Active</td>
                     <td>
                       <button class="btn-enable px-3 py-1">Enabled</button>
@@ -67,16 +69,20 @@
       <form action="" onsubmit="" id="theform" method="POST" >
         <div class="modal-body">
           <div class="form-group mt-3">
-          <i class="bi bi-person-circle mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Name">
+            <i class="bi bi-person-circle mx-2 mb-1"></i>
+            <input type="text" class="form-control" id="" placeholder="Name" required>
           </div>
           <div class="form-group mt-3">
-          <i class="bi bi-123 mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Plate No.">
+            <i class="bi bi-123 mx-2 mb-1"></i>
+            <input type="text" class="form-control" id="" placeholder="Plate No." required>
           </div>
-          <div class="form-group mx-2 mt-3">
-          <i class="bi bi-telephone-fill mb-1"></i>
+          <div class="form-group mt-3">
+            <i class="bi bi-telephone-fill mb-1"></i>
             <input type="text" class="form-control" id="contactField" name="phone" onkeyup=" return validatephone(this.value);" placeholder="Contact (09)">
+          </div>
+          <div class="form-group mt-3">
+            <i class="bi bi-envelope-fill mx-2 mb-1"></i>
+            <input type="email" class="form-control" id="" placeholder="@email.com" required>
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">

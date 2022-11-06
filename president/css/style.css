@@ -155,6 +155,16 @@ tbody tr:hover{
   border: none;
 }
 
+.btn-action{
+  border: none;
+  background-color: transparent;
+}
+
+/* .bi-check-circle-fill{
+  font-size: 10pt;
+  color: #fff;
+} */
+
 .bi-arrow-repeat{
   color: #3198f5;
   font-size: 14pt;
@@ -264,6 +274,20 @@ tbody tr:hover{
 .view-message-image {
   width: 100%;
   height: auto;
+}
+
+.btn-respond{
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: #3198f5;
+  color: #fff;
+  font-size: 10pt;
+}
+
+.btn-respond:hover{
+  background-color: #00328f;
+  color: #f0ff00;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {

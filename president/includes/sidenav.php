@@ -93,7 +93,8 @@ body {
     </div>
     <div class="nav-span-a mb-3">
       <span class="span-title">History</span>
-      <a href="history.php">History</a>
+      <a href="processing.php">Processing</a>
+      <a href="resolved.php">Resolved</a>
     </div>
     <div class="nav-span-a nav-span-a-logout mx-5 mb-3">
       <a href=""><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
