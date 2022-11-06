@@ -83,18 +83,18 @@ body {
       <a href="index.php">Dashboard</a>
     </div>
     <div class="nav-span-a mb-3">
-      <span class="span-title">Criteria</span>
-      <a href="criteria.php">Criteria</a>
-    </div>
-    <div class="nav-span-a mb-3">
       <span class="span-title">Management</span>
-      <a href="toda.php">Manage Toda</a>
-      <a href="president.php">Manage President</a>
+      <a href="driver.php">Drivers</a>
+      <a href="violation.php">Violations</a>
     </div>
     <div class="nav-span-a mb-3">
-      <span class="span-title">Viewing</span>
-      <a href="driver.php">View Drivers</a>
-      <a href="inbox-complain.php">View Complains</a>
+      <span class="span-title">Notifications</span>
+      <a href="inbox-complain.php">Inbox</a>
+    </div>
+    <div class="nav-span-a mb-3">
+      <span class="span-title">History</span>
+      <a href="processing.php">Processing</a>
+      <a href="resolved.php">Resolved</a>
     </div>
     <div class="nav-span-a nav-span-a-logout mx-5 mb-3">
       <a href=""><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>

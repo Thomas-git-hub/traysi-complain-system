@@ -25,16 +25,15 @@
       <h1 class="header-title-1">Traysi</h1>
       <h1 class="header-title-2">Complain & Report</h1>
       <h1 class="header-title-3">Management System</h1>
-      <h1 class="header-title-4"><i class="bi bi-emoji-laughing-fill">&nbsp;</i>Hello, Welcome Admin!</h1>
+      <h1 class="header-title-4"><i class="bi bi-emoji-laughing-fill">&nbsp;</i>Hello, Welcome President!</h1>
     </div>
 </div>
 
 <div class="d-flex justify-content-center mt-3">
-  <a class="a-mid-nav" href="criteria.php">Criteria</a>
-  <a class="a-mid-nav" href="toda.php">Toda</a>
-  <a class="a-mid-nav" href="president.php">President</a>
-  <a class="a-mid-nav" href="#">Driver</a>
-  <a class="a-mid-nav" href="#">Notification</a>
+  <a class="a-mid-nav" href="driver.php">Drivers</a>
+  <a class="a-mid-nav" href="violation.php"> Violation</a>
+  <a class="a-mid-nav" href="inbox-complain.php">Inbox</a>
+  <a class="a-mid-nav" href="#">History</a>
 </div>
 
 
@@ -43,7 +42,7 @@
       <div class="col d-flex justify-content-center">
         <div class="card card-president" style="width: 24rem;">
           <div class="card-body">
-            <h1 class="h1-card-president d-flex justify-content-center">Total Number of Presidents</h1>
+            <h1 class="h1-card-report d-flex justify-content-center">Number of Reports</h1>
             <h1 class="h1-card-count d-flex justify-content-center">120</h1>
           </div>
         </div>
@@ -51,7 +50,15 @@
       <div class="col d-flex justify-content-center">
         <div class="card card-driver" style="width: 24rem;">
           <div class="card-body">
-            <h1 class="h1-card-driver d-flex justify-content-center">Total Number of Presidents</h1>
+            <h1 class="h1-card-active d-flex justify-content-center">Total Number of Active Drivers</h1>
+            <h1 class="h1-card-count d-flex justify-content-center">120</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <div class="card card-driver" style="width: 24rem;">
+          <div class="card-body">
+            <h1 class="h1-card-inactive d-flex justify-content-center">Total Number of Inactive Drivers</h1>
             <h1 class="h1-card-count d-flex justify-content-center">120</h1>
           </div>
         </div>

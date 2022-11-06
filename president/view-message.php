@@ -23,10 +23,10 @@
 
 <div class="container">
   <div class="d-flex justify-content-center">
-    <div class="card card-view-message mb-3">
+    <div class="card card-view-message mb-5">
       <div class="card-body">
         <div class="d-flex justify-content-start flex-row">
-          <a href="inbox.php"><i class="bi bi-arrow-left"></i></a>
+          <a href="inbox-complain.php"><i class="bi bi-arrow-left"></i></a>
         </div>
         <div class="d-flex justify-content-start mt-3">
           <h1 class="title-message">Message</h1>&nbsp;
@@ -38,15 +38,59 @@
         <div class="d-flex justify-content-center">
           <div class="card inner-card" style="width: 43rem;">
             <div class="card-body">
-              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small>President</small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-geo-alt-fill">&nbsp;</i><small>Toda1</small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-palette-fill">&nbsp;</i><small>Yellow</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small>Peter Griffin</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small>petergriffin@gmail.com</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small>09156748575</small></h1>
               <h1 class="h1-view-mes-con mt-5"><i class="bi bi-chat-left-text-fill">&nbsp;</i></h1>
               <h1 class="h1-view-mes-con"><small style="font-weight: normal;">This is a sample message</small></h1>
             </div>
           </div>
         </div>
       </div>
+      <div class="row">
+        <h1 class="attached-image-title">Attachment</h1>
+        <h1 class="attached-image-title">No Attachment</h1>
+        <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
+      </div>
+      <div class="row">
+        <div class="d-flex flex-row">
+          <button class="btn btn-respond" data-toggle="modal" data-target="#sendMessage"><i class="bi bi-send-fill">&nbsp;</i>Send Message</button>
+          <button class="btn btn-respond"><i class="bi bi-check-circle-fill">&nbsp;</i>Process</button>
+          <!-- NOTE! when process button is clicked, the page will be redirected to processing page (processing.php) -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- modal -->
+
+<!-- Update Criteria -->
+<div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-center">
+        <h5 class="modal-header-title" id="exampleModalLabel">U p d a t e &nbsp;&nbsp; C r i t e r i a</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <form action=""  method="post" id="profFrm" onsubmit="">
+        <div class="modal-body">
+          <div class="form-group mt-3">
+            <h1 class="h1-view-mes-con">To:&nbsp;&nbsp;<small style="font-weight: normal; font-style: italic;">petergriffin@gmail.com</small></h1>
+            <!-- <input type="email" class="form-control" id="" aria-describedby="" placeholder=""> -->
+          </div>
+          <div class="form-group mt-3">
+            <i class="bi bi-reply-fill mx-2"></i>
+            <textarea class="form-control" id="" rows="3" placeholder="Message"></textarea>
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" class="modal-btn-upd">Send</button>
+          </div>
+      </form>
     </div>
   </div>
 </div>

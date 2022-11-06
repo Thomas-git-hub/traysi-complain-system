@@ -19,7 +19,7 @@
  <div class="container">
     <div class="row row-system-title">
       <div class="col d-flex justify-content-center">
-        <h1>hello PH</h1>
+        <img class="cs-logo" src="assets/png/cs-logo.png" alt="tcs-logo">
       </div>
       <div class="col d-flex flex-column col-system-title">
         <h1 class="system-title-1">T R A Y S I</h1>

@@ -20,7 +20,7 @@ body {
 }
 
 .span-nav-title{
-  color: #fff;
+  color: #000000;
 }
 
 .head__custom-nav button span img {
@@ -34,15 +34,15 @@ body {
 .head__custom-nav #navbarNav .navbar-nav .nav-item .nav-link{
   display: inline-block;
   padding: 8px 22px;
-  color: #fff;
+  color: #000;
   border: 1px solid transparent;
   text-decoration: none;
   /*transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);*/
 }
 
 .head__custom-nav #navbarNav .navbar-nav .nav-item .nav-link:hover{
-  color: #f0ff00;
-  border-bottom: 1px solid #f0ff00;
+  color: #2a97d6;
+  border-bottom: 1px solid #2a97d6;
   /* border: 0px; */
   /* border-radius: 10px; */
 }
@@ -50,7 +50,7 @@ body {
 .head__custom-nav #navbarNav .navbar-nav .nav-item .register {
   display: inline-block;
   padding: 8px 22px;
-  color: #fff;
+  color: #000;
   border: 1px solid transparent;
   /* border-radius: 10px; */
   text-decoration: none;
@@ -58,8 +58,8 @@ body {
 }
 
 .head__custom-nav #navbarNav .navbar-nav .nav-item .register:hover{
-  color: #f0ff00;
-  border-bottom: 1px solid #f0ff00;
+  color: #2a97d6;
+  border-bottom: 1px solid #2a97d6;
   /* background-color: #1261a0; */
 }
 

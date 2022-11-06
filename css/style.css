@@ -8,7 +8,11 @@ body {
 }
 
 .row-system-title{
-  margin-top: 16%;
+  margin-top: 10%;
+}
+
+.col-system-title{
+  margin-top: 7%;
 }
 
 .system-title-1{
@@ -118,6 +122,11 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 720px){
+
+  .cs-logo{
+    width: 200px;
+    height: auto;
+  }
 
   .system-title-1{
     font-size: 16pt;

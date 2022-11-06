@@ -22,27 +22,38 @@
 <?php include_once("includes/sidenav.php") ?>
 
 <div class="container">
-<h1 class="page-title"><i class="bi bi-clock-history">&nbsp;</i>H i s t o r y</h1>
-  <div class="row table">
-			<table id="datatable" class="table inner-table display">
-		        <thead class="thead-dark">
-		            <tr>
-		                <th>Toda</th>
-                    <th>Plate No.</th>
-		                <th>Status</th>
-		                <th>Action</th>
-		            </tr>
-		        </thead>
-		        <tbody>
-		            <tr> 
-		            	  <td>Toda1</td>
-                    <td>plate01</td>
-		                <td>recieved</td>
-		                <td>clear</td>
-		            </tr>
-		        </tbody>
-		    </table>
-	</div>
+  <div class="d-flex justify-content-center">
+    <div class="card card-view-message mb-5">
+      <div class="card-body">
+        <div class="d-flex justify-content-start flex-row">
+          <a href="inbox-complain.php"><i class="bi bi-arrow-left"></i></a>
+        </div>
+        <div class="d-flex justify-content-start mt-3">
+          <h1 class="title-message">Message</h1>&nbsp;
+        </div>
+        <div class="d-flex justify-content-end flex-row">
+          <h1 class="message-date-time">6:30pm</h1>&nbsp;
+          <h1 class="message-date-time">11/01/2022</h1>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="card inner-card" style="width: 43rem;">
+            <div class="card-body">
+              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small>Peter Griffin</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small>petergriffin@gmail.com</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small>09156748575</small></h1>
+              <h1 class="h1-view-mes-con mt-5"><i class="bi bi-chat-left-text-fill">&nbsp;</i></h1>
+              <h1 class="h1-view-mes-con"><small style="font-weight: normal;">This is a sample message</small></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h1 class="attached-image-title">Attachment</h1>
+        <h1 class="attached-image-title">No Attachment</h1>
+        <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="../js/jquery.min.js"></script>
@@ -61,13 +72,6 @@
 <script type="text/javascript" src="../js/vfs_fonts.js"></script>
 <script type="text/javascript" src="../js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="../js/dataTables.bootstrap5.min.js"></script>
-
-<script>
-	$(document).ready(function () {
-        $('#datatable').DataTable();
-        responsive: true
-    });
-</script>
 
 </body>
 </html>

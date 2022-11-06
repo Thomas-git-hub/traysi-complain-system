@@ -19,11 +19,11 @@
         <header class="head my-3">
             <nav class="navbar navbar-expand-lg navbar-light head__custom-nav">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="assets/png/cs-logo.png" alt="#">
+                    <!-- <img src="assets/png/bnhs.png" alt="BNHS"> -->
                     <span class="span-nav-title">Traysi: <small>Complain & Report MS</small></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                    <span><img src="assets/png/burger-wht-bg.png" alt=""></span>
+                    <span><img src="assets/png/burger.png" alt=""></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
@@ -47,7 +47,7 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
