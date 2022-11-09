@@ -18,12 +18,19 @@
   
 </head>
 <body>
-<?php include_once("includes/navbar.php") ?>
+<?php 
+include_once("includes/navbar.php");
+?>
 
 <div class="container con-login">
 <div class="card" style="width: 35rem;">
   <div class="card-body">
-    <form id="theform" action="" method="POST" >
+
+  <!------- Validation Design Here Please ---------->
+  
+  <!--------------------------------------------------->
+
+    
     <h5 class="card-title d-flex justify-content-center mt-2"><i class="bi bi-door-open-fill">&nbsp;</i>L O G I N</h5>
       <div class="form-group mt-3">
         <select class="form-control" id="selectUser">
@@ -35,67 +42,85 @@
         </select>
       </div>
       <!-- admin form -->
+      <div id="adminLogin">
+      <form id="theform" action="" method="POST" >
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="adminFullname" aria-describedby="" placeholder="Admin Full Name">
       </div>
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="adminCode" name="phone" placeholder="Code">
       </div>
+      <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      </form>
+      </div>
       <!-- end admin form -->
 
       <!-- president form -->
-      <div class="form-group mt-3">
-        <input type="text" class="form-control" id="presidentFullname" aria-describedby="" placeholder="President Full Name">
-      </div>
-      <div class="form-group mt-3">
-        <input type="text" class="form-control" id="presidentCode" name="phone" placeholder="Code">
+      <div id="presidentLogin">
+      <form id="theform" action="" method="POST" >
+        <div class="form-group mt-3">
+          <input type="text" class="form-control"  id="presidentFullname" name="fullname" aria-describedby="" placeholder="President Full Name">
+        </div>
+        <div class="form-group mt-3">
+          <input type="text" class="form-control" id="presidentCode" name="code" placeholder="Code">
+        </div>
+        <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      </form>
       </div>
       <!-- end president form -->
 
       <!-- user form -->
+      <div id="userLogin">
+      <form id="theform" action="" method="POST" >
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="userFullname" aria-describedby="" placeholder="User Full Name">
       </div>
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="userContactfield" name="phone" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
       </div>
+      <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      </form>
+      </div>
       <!-- end user form -->
 
       <!-- driver form -->
+      <div id="driverLogin">
+      <form id="theform" action="" method="POST" >
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="driverFullname" aria-describedby="" placeholder="Driver Full Name">
       </div>
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="driverContactfield" name="phone" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
       </div>
+      <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      </form>
+      </div>
       <!-- end driver form -->
 
       <h1 class="h1-register-link">Don't have an account? <a href="register.php">Regsiter Here!</a></h1>
-      <button type="submit" id="btn" class="btn mt-3">Login</button>
-    </form>
   </div>
 </div>
 </div>
 
 <script>
   $(document).ready(function(){
-    $('#adminFullname, #adminCode, #presidentFullname, #presidentCode, #userFullname, #userContactfield, #driverFullname, #driverContactfield').hide();
+    $('#adminLogin, #presidentLogin, #userLogin, #driverLogin').hide();
      
       $ ('#selectUser').change(function(){
           var a = $(this).val();
 
           if (a == "1"){
-            $('#adminFullname, #adminCode').show();
-            $('#presidentFullname, #presidentCode, #userFullname, #userContactfield, #driverFullname, #driverContactfield').hide();
+            $('#adminLogin').show();
+            $('#presidentLogin, #userLogin, #driverLogin').hide();
           }else if (a == "2"){
-            $('#adminFullname, #adminCode').hide();
-            $('#presidentFullname, #presidentCode').show();
+            $('#adminLogin, #userLogin, #driverLogin').hide();;
+            $('#presidentLogin').show();
           }else if (a == "3"){
-            $('#adminFullname, #adminCode, #presidentFullname, #presidentCode, #driverFullname, #driverContactfield').hide();
-            $('#userFullname, #userContactfield').show();
+            $('##adminLogin, #presidentLogin, #driverLogin').hide();
+            $(' $userLogin').show();
           }else if (a == "4"){
-            $('#adminFullname, #adminCode, #presidentFullname, #presidentCode, #userFullname, #userContactfield').hide();
-            $('#driverFullname, #driverContactfield').show();
+            $('#adminLogin, #presidentLogin, #userLogin').hide();
+            $('#driverLogin').show();
           }
     });
   });
