@@ -121,6 +121,17 @@ input::placeholder {
   background-color: #00328f;
 }
 
+.a-card{
+  text-decoration: none;
+}
+
+.login-card{
+  width: 90%;
+  background-color: #fff;
+  margin-right: 100px;
+}
+
+
 @media only screen and (max-width: 720px){
 
   .cs-logo{
