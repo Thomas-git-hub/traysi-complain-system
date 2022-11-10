@@ -1,0 +1,173 @@
+body{
+  background-color: #f6f8fc;
+}
+
+.row-welcome{
+  background-color: #3198f5;
+  padding: 15px;
+}
+
+.h1-welcome{
+  color: #f0ff00;
+  font-weight: 900;
+  margin-left: 20px;
+}
+.h1-welcome-driver{
+  font-size: 14pt;
+  color: #f0ff00;
+  font-weight: 900;
+  margin-left: 20px;
+}
+
+.table{
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 10pt;
+}
+
+.inner-table{
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 10pt;
+}
+
+.thead-dark{
+  font-size: 11pt;
+  font-weight: bold;
+  color: #000;
+}
+
+tbody tr td{
+  font-size: 11pt;
+}
+
+tbody tr:hover{
+  cursor: pointer;
+  box-shadow: 0px 1px 10px 1px rgba(49,152,245,0.35);
+  -webkit-box-shadow: 0px 1px 10px 1px rgba(49,152,245,0.35);
+  -moz-box-shadow: 0px 1px 10px 1px rgba(49,152,245,0.35);
+}
+
+.bi-eye-fill{
+  font-size: 14pt;
+}
+
+.bi-arrow-left{
+  font-size: 28px;
+}
+
+.title-message{
+  color: #3198f5;
+  font-weight: 900;
+  font-size: 12pt;
+}
+
+.h1-inbox-title{
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 14pt;
+  color: #3198f5;
+  font-weight: bold;
+}
+
+.card-view-message{
+  margin-top: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border: none;
+  width: 48rem;
+}
+
+.message-date-time{
+  font-size: 9pt;
+  color: #9b9b9b;
+}
+
+.h1-view-mes-con{
+  margin-top: 2%;
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+.form-control{
+  border-radius: 20px;
+  border: 1px solid #3198f5;
+}
+
+.inner-card{
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #f6f8fc;
+  border: none;
+}
+
+.attached-image-title{
+  font-size: 10pt;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.view-message-image {
+  width: 100%;
+  height: auto;
+}
+
+.btn-respond{
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: #3198f5;
+  color: #fff;
+  font-size: 10pt;
+}
+
+.btn-respond:hover{
+  background-color: #00328f;
+  color: #f0ff00;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 720px){
+
+  .h1-welcome{
+    font-weight: 900;
+    font-size: 14pt;
+    margin-left: 10px;
+  }
+
+  .thead-dark{
+    font-size: 9pt;
+  }
+
+  tbody tr td{
+    font-size: 9pt;
+  }
+
+  .inner-table{
+    width: 9%;
+  }
+
+  .data-hidden{
+    display: none;
+  }
+  .inner-card{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .btn-disable{
+    margin-top: 3px;
+  }
+
+  .inner-card{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .table-align{
+    display: flex;
+    justify-content: center;
+  }
+
+
+}
