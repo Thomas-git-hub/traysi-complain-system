@@ -116,8 +116,8 @@ include_once("includes/navbar.php");
             $('#adminLogin, #userLogin, #driverLogin').hide();;
             $('#presidentLogin').show();
           }else if (a == "3"){
-            $('##adminLogin, #presidentLogin, #driverLogin').hide();
-            $(' $userLogin').show();
+            $('#adminLogin, #presidentLogin, #driverLogin').hide();
+            $('#userLogin').show();
           }else if (a == "4"){
             $('#adminLogin, #presidentLogin, #userLogin').hide();
             $('#driverLogin').show();
