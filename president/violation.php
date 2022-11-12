@@ -16,7 +16,19 @@
 </head>
 <body>
 
-<?php include_once("includes/sidenav.php") ?>
+<?php 
+include_once("includes/sidenav.php");
+
+include_once("includes/config/app.php");
+include_once("includes/auth.php");
+include_once("includes/Controller/ComplainController.php");
+
+// Validation if user is not Logged In
+include_once("includes/Controller/AuthenticationController.php");
+    
+$data = $authenticated->authDetails();
+
+?>
 
 <div class="container">
   <h1 class="page-title"><i class="bi bi-exclamation-circle-fill">&nbsp;</i>V i o l a t i o n</h1>
@@ -24,6 +36,10 @@
   <!-- <div class="d-flex justify-content-end">
     <button class="btn col-btn-create" data-toggle="modal" data-target="#addCrit"><i class="bi bi-plus-circle-fill">&nbsp;</i>Add Criteria</button>
   </div> -->
+
+  <!----- Validation Design Here Please---->
+  <?php include_once("includes/message.php") ?>
+  <!------------------------------------------>
 
     <div class="row table mt-5">
       <table id="datatable" class="table inner-table display">
@@ -36,16 +52,33 @@
                 </tr>
             </thead>
             <tbody>
+              <?php
+              $data = new ComplainController;
+              $result = $data->getViolation();
+              if($result)
+              {
+                foreach($result as $row)
+                {
+              ?>
                 <tr> 
-                    <td>1st offense</td>
-                    <td>Lois Griffin</td>
-                    <td>plateno02</td>
+                    <td><?= $row['type'] ?></td>
+                    <td><?= $row['fullname'] ?></td>
+                    <td><?= $row['plate_no'] ?></td>
                     <td>
                       <button class="btn btn-upd">
                         <i class="bi bi-dash-circle-fill"></i>
                       </button>
                     </td>
                 </tr>
+                <?php
+                  }
+
+                }
+                else
+                {
+                  echo "NO RECORD FOUND";
+                }
+              ?>
             </tbody>
         </table>
     </div>

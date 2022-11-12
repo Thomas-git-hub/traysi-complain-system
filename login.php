@@ -20,6 +20,10 @@
 <body>
 <?php 
 include_once("includes/navbar.php");
+
+include_once("president/includes/config/app.php");
+include_once("president/includes/auth.php");
+$auth->isLoggedIn();
 ?>
 
 <div class="container con-login">
@@ -27,7 +31,7 @@ include_once("includes/navbar.php");
   <div class="card-body">
 
   <!------- Validation Design Here Please ---------->
-  
+  <?php include_once("president/includes/message.php") ?>
   <!--------------------------------------------------->
 
     
@@ -57,7 +61,8 @@ include_once("includes/navbar.php");
 
       <!-- president form -->
       <div id="presidentLogin">
-      <form id="theform" action="" method="POST" >
+      <form id="theform" action="president/includes/auth.php" method="POST" >
+
         <div class="form-group mt-3">
           <input type="text" class="form-control"  id="presidentFullname" name="fullname" aria-describedby="" placeholder="President Full Name">
         </div>
@@ -96,7 +101,6 @@ include_once("includes/navbar.php");
       </form>
       </div>
       <!-- end driver form -->
-
       <h1 class="h1-register-link">Don't have an account? <a href="register.php">Regsiter Here!</a></h1>
   </div>
 </div>
@@ -116,8 +120,8 @@ include_once("includes/navbar.php");
             $('#adminLogin, #userLogin, #driverLogin').hide();;
             $('#presidentLogin').show();
           }else if (a == "3"){
-            $('##adminLogin, #presidentLogin, #driverLogin').hide();
-            $(' $userLogin').show();
+            $('#adminLogin, #presidentLogin, #driverLogin').hide();
+            $('#userLogin').show();
           }else if (a == "4"){
             $('#adminLogin, #presidentLogin, #userLogin').hide();
             $('#driverLogin').show();

@@ -16,11 +16,26 @@
 </head>
 <body>
 
-<?php include_once("includes/sidenav.php") ?>
+<?php 
+include_once("includes/sidenav.php");
+
+include_once("includes/config/app.php");
+include_once("includes/auth.php");
+include_once("includes/Controller/DriverController.php");
+
+    // Validation if user is not Logged In
+    include_once("includes/Controller/AuthenticationController.php");
+    
+    $data = $authenticated->authDetails();
+?>
 
 <div class="container">
   <h1 class="page-title"><i class="bi bi-people-fill">&nbsp;</i>M a n a g e &nbsp;&nbsp; D r i v e r s</h1>
-    
+
+  <!----- Validation Design Here Please---->
+  <?php include_once("includes/message.php") ?>
+  <!------------------------------------------>
+  
   <div class="d-flex justify-content-end">
     <button class="btn col-btn-create" data-toggle="modal" data-target="#addDriver"><i class="bi bi-plus-circle-fill">&nbsp;</i>Add New Driver</button>
   </div>
@@ -38,17 +53,34 @@
                 </tr>
             </thead>
             <tbody>
-                <tr> 
-                    <td>Peter Griffin</td>
-                    <td>plateno01</td>
-                    <td class="data-hidden">09156748575</td>
-                    <td>driver@gmail.com</td>
-                    <td>Active</td>
+              <?php
+                $driver = new DriverController;
+                $result = $driver->index();
+                if($result)
+                {
+                  foreach($result as $row)
+                  {
+                    ?>
+                  <tr> 
+                    <td><?= $row['fullname'] ?></td>
+                    <td><?= $row['plate_no'] ?></td>
+                    <td class="data-hidden"><?= $row['contact_no'] ?></td>
+                    <td><?= $row['email'] ?></td>
+                    <td><?= $row['status'] ?></td>
                     <td>
                       <button class="btn-enable px-3 py-1">Enabled</button>
                       <button class="btn-disable px-3 py-1">Disabled</button>
                     </td>
                 </tr>
+                    <?php
+                  }
+
+                }
+                else
+                {
+                  echo "NO RECORD FOUND";
+                }
+              ?>
             </tbody>
         </table>
     </div>
@@ -66,27 +98,30 @@
           <span aria-hidden="true">&times;</span>
         </button> -->
       </div>
-      <form action="" onsubmit="" id="theform" method="POST" >
+      <form action="includes/driver_conn.php" onsubmit="" id="theform" method="POST" >
         <div class="modal-body">
           <div class="form-group mt-3">
             <i class="bi bi-person-circle mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Name" required>
+            <input type="text" class="form-control" name="fullname" id="" placeholder="Name" required>
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-123 mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Plate No." required>
+            <input type="text" class="form-control" name="plate_no" id="" placeholder="Plate No." required>
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-telephone-fill mb-1"></i>
-            <input type="text" class="form-control" id="contactField" name="phone" onkeyup=" return validatephone(this.value);" placeholder="Contact (09)">
+            <input type="text" class="form-control" name="contact_no" id="contactField" name="phone" onkeyup=" return validatephone(this.value);" placeholder="Contact (09)">
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-envelope-fill mx-2 mb-1"></i>
-            <input type="email" class="form-control" id="" placeholder="@email.com" required>
+            <input type="email" class="form-control" name="email" id="" placeholder="@email.com" required>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" hidden class="form-control" name="toda_id" value="<?= $data['toda_id'] ?>" id="">
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="submit" class="modal-btn-upd">Enter</button>
+          <button type="submit" name= "save" class="modal-btn-upd">Enter</button>
         </div>
       </form>
     </div>
