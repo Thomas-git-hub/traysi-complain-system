@@ -19,7 +19,18 @@
 </head>
 <body>
 
-<?php include_once("includes/sidenav.php") ?>
+<?php 
+include_once("includes/sidenav.php");
+
+include_once("includes/config/app.php");
+include_once("includes/auth.php");
+include_once("includes/Controller/ComplainController.php");
+
+// Validation if user is not Logged In
+include_once("includes/Controller/AuthenticationController.php");
+    
+$data = $authenticated->getResolvedDetails();
+?>
 
 <div class="container">
   <div class="d-flex justify-content-center">
@@ -32,17 +43,17 @@
           <h1 class="title-message">Message</h1>&nbsp;
         </div>
         <div class="d-flex justify-content-end flex-row">
-          <h1 class="message-date-time">6:30pm</h1>&nbsp;
-          <h1 class="message-date-time">11/01/2022</h1>
+          <h1 class="message-date-time"><?=$data['time']?></h1>&nbsp;
+          <h1 class="message-date-time"><?=$data['date']?></h1>
         </div>
         <div class="d-flex justify-content-center">
           <div class="card inner-card" style="width: 43rem;">
             <div class="card-body">
-              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small>Peter Griffin</small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small>petergriffin@gmail.com</small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small>09156748575</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><?=$data['fullname']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small><?=$data['email']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small><?=$data['contact_no']?></small></h1>
               <h1 class="h1-view-mes-con mt-5"><i class="bi bi-chat-left-text-fill">&nbsp;</i></h1>
-              <h1 class="h1-view-mes-con"><small style="font-weight: normal;">This is a sample message</small></h1>
+              <h1 class="h1-view-mes-con"><small style="font-weight: normal;"><?=$data['others']?></small></h1>
             </div>
           </div>
         </div>

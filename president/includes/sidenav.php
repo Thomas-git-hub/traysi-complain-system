@@ -1,3 +1,6 @@
+<?php
+include_once("includes/auth.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +100,7 @@ body {
       <a href="resolved.php">Resolved</a>
     </div>
     <div class="nav-span-a nav-span-a-logout mx-5 mb-3">
-      <a href=""><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
+      <a href="?logout=true"><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
     </div>
   </div>
 

@@ -15,19 +15,31 @@
   <title>Report</title>
 </head>
 <body>
-  <?php include_once("includes/sidenav.php") ?>
+  <?php
+    include_once("includes/sidenav.php");
+    
+    // Validation if user is not Logged In
+    include_once("includes/Controller/AuthenticationController.php");
+   ?>
 
-<div class="row-header d-flex flex-row">
-    <div class="col col-img d-flex justify-content-center">
-      <img class="img-svg" src="assets/svg/otw.svg" alt="">
-    </div>
+  <div class="row-header d-flex flex-row">
+      <div class="col col-img d-flex justify-content-center">
+        <img class="img-svg" src="assets/svg/otw.svg" alt="">
+      </div>
     <div class="col">
+
+          <!----- Validation Design Here Please---->
+          <?php include_once("includes/message.php") ?>
+          <!------------------------------------------>
+
       <h1 class="header-title-1">Traysi</h1>
       <h1 class="header-title-2">Complain & Report</h1>
       <h1 class="header-title-3">Management System</h1>
-      <h1 class="header-title-4"><i class="bi bi-emoji-laughing-fill">&nbsp;</i>Hello, Welcome President!</h1>
+      <?php $data = $authenticated->authDetails(); ?>
+      <h1 class="header-title-4"><i class="bi bi-emoji-laughing-fill">&nbsp;</i>Hello, Welcome <?= $data['fullname'] ?> </h1>
     </div>
 </div>
+
 
 <div class="d-flex justify-content-center mt-3">
   <a class="a-mid-nav" href="driver.php">Drivers</a>
@@ -85,8 +97,9 @@
       </div>
     </div>
   </div>
-
+ 
 </div><!-- end of container -->
-  
+
 </body>
 </html>
+

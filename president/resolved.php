@@ -16,10 +16,25 @@
 </head>
 <body>
 
-<?php include_once("includes/sidenav.php") ?>
+<?php 
+include_once("includes/sidenav.php");
+
+include_once("includes/config/app.php");
+include_once("includes/auth.php");
+include_once("includes/Controller/ComplainController.php");
+
+// Validation if user is not Logged In
+include_once("includes/Controller/AuthenticationController.php");
+    
+$data = $authenticated->authDetails();
+?>
 
 <div class="container">
   <h1 class="page-title"><i class="bi bi-exclamation-triangle-fill"></i>&nbsp;</i>R e p o r t &nbsp;&nbsp;H i s t o r y &nbsp;&nbsp;R e s o l v e d</h1>
+
+        <!----- Validation Design Here Please---->
+        <?php include_once("includes/message.php") ?>
+        <!------------------------------------------>
 
     <div class="row table mt-5">
       <table id="datatable" class="table inner-table display">
@@ -32,12 +47,28 @@
                 </tr>
             </thead>
             <tbody>
+            <?php
+                $data = new ComplainController;
+                $result = $data->getResolveComplain();
+                if($result)
+                {
+                  foreach($result as $row)
+                  {
+                ?>
                 <tr> 
-                    <td>Peter Griffin</td>
-                    <td><a href="view-message-resolve.php">I hate the driver</a></td>
-                    <td>11/04/2022</td>
-                    <td>Resolved</td>
+                    <td><?= $row['fullname'] ?></td>
+                    <td><a href="view-message-resolve.php"><?= $row['others'] ?></td>
+                    <td><?= $row['date'] ?></td>
+                    <td><?= $row['time'] ?></td>
                 </tr>
+                <?php
+                  }
+                }
+                else
+                {
+                  echo "NO RECORD FOUND";
+                }
+              ?>
             </tbody>
         </table>
     </div>

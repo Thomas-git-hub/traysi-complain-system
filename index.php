@@ -14,7 +14,13 @@
   <title>Landing Page</title>
 </head>
 <body>
-  <?php include_once("includes/navbar.php") ?>
+  <?php 
+  include_once("includes/navbar.php");
+
+  include_once("president/includes/config/app.php");
+  include_once("president/includes/auth.php");
+  $auth->isLoggedIn(); 
+  ?>
 
  <div class="container">
     <div class="row row-system-title">
