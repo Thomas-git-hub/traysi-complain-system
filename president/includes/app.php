@@ -1,9 +1,6 @@
 <?php
-session_start();
 
-include dirname(__FILE__).'/../../includes/db_conn.php';
-$db = new db_conn;
-
+include dirname(__FILE__).'/../../includes/app.php';
 define('SITE_URL',' http://localhost/cs/traysi-complain-system/');
 
 function base_url($slug)
