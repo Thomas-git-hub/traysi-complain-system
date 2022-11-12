@@ -21,9 +21,16 @@
 <?php 
 include_once("includes/navbar.php");
 
-include_once("president/includes/config/app.php");
+include_once("president/includes/app.php");
 include_once("president/includes/auth.php");
+
+include_once("driver/includes/config/app.php");
+
+
+
 $auth->isLoggedIn();
+
+
 ?>
 
 <div class="container con-login">
@@ -90,12 +97,12 @@ $auth->isLoggedIn();
 
       <!-- driver form -->
       <div id="driverLogin">
-      <form id="theform" action="" method="POST" >
+      <form id="theform" action="driver/includes/auth.php" method="POST" >
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="driverFullname" aria-describedby="" placeholder="Driver Full Name">
+        <input type="text" class="form-control" id="driverFullname" name="fullname" aria-describedby="" placeholder="Driver Full Name">
       </div>
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="driverContactfield" name="phone" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
+        <input type="text" class="form-control" id="driverContactfield" name="contact_no" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
       </div>
       <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
       </form>

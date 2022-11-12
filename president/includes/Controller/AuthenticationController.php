@@ -1,5 +1,5 @@
 <?php
-include_once("includes/config/app.php");
+include_once("includes/app.php");
 class AuthenticationController
 {
     public function __construct()
@@ -27,7 +27,7 @@ class AuthenticationController
     {
         $checkAuth = $this->checkIsLoggedIn();
         if($checkAuth){
-            $user_id = $_SESSION['auth_user']['pres_id'];
+            $user_id = $_SESSION['auth_user']['id'];
 
             $getDriverperPres= "SELECT * FROM president WHERE toda_id = '$user_id'";
 
@@ -52,7 +52,7 @@ class AuthenticationController
     {
         $checkAuth = $this->checkIsLoggedIn();
         if($checkAuth){
-            $user_id = $_SESSION['auth_user']['pres_id'];
+            $user_id = $_SESSION['auth_user']['id'];
 
             $sql= "SELECT e.fullname
                         ,e.email
@@ -94,7 +94,7 @@ class AuthenticationController
     {
         $checkAuth = $this->checkIsLoggedIn();
         if($checkAuth){
-            $user_id = $_SESSION['auth_user']['pres_id'];
+            $user_id = $_SESSION['auth_user']['id'];
 
             $sql= "SELECT e.fullname
                         ,e.email

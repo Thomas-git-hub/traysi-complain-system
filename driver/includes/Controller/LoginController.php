@@ -8,12 +8,12 @@ class LoginController
         $this->conn = $db->conn;
     } 
 
-    public function login($fullname,$code)
+    public function login($fullname,$contact_no)
     {
         $checkLogin = "SELECT * FROM president
                         WHERE 
                              fullname = '$fullname '
-                         AND code = '$code'
+                         AND contact_no = '$contact_no'
                          LIMIT 1";
         $result = $this->conn->query($checkLogin);
         if($result->num_rows > 0){
@@ -44,7 +44,7 @@ class LoginController
     public function isLoggedIn()
     {
         if(isset($_SESSION['authenticated']) === TRUE){
-            redirect('You are already logged in', 'president/index.php');
+            redirect('You are already logged in', 'driver/index.php');
         }
         else{
             return false;
