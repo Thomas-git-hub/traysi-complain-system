@@ -9,7 +9,7 @@ class ComplainController{
     }
 
     public function getViolation(){
-        $user_id = $_SESSION['auth_user']['pres_id'];
+        $user_id = $_SESSION['auth_user']['id'];
         $ViolaionQuery = "SELECT e.type
                                , d.fullname
                                , d.plate_no
@@ -32,7 +32,7 @@ class ComplainController{
         }
     }
     public function getUserComplain(){
-        $user_id = $_SESSION['auth_user']['pres_id'];
+        $user_id = $_SESSION['auth_user']['id'];
         $ComplainQuery = "SELECT e.fullname
                                 ,a.others
                                 ,date_format(a.created_at, '%m-%d-%Y') as `date`
@@ -57,7 +57,7 @@ class ComplainController{
         }
     }
     public function getProcessingComplain(){
-        $user_id = $_SESSION['auth_user']['pres_id'];
+        $user_id = $_SESSION['auth_user']['id'];
         $ComplainQuery = "SELECT e.fullname
                                 ,e.email
                                 ,e.contact_no
@@ -89,7 +89,7 @@ class ComplainController{
     }
 
     public function getResolveComplain(){
-        $user_id = $_SESSION['auth_user']['pres_id'];
+        $user_id = $_SESSION['auth_user']['id'];
         $ComplainQuery = "SELECT e.fullname
                                 ,e.email
                                 ,e.contact_no
@@ -118,11 +118,8 @@ class ComplainController{
         }else{
             return false;
         }
-    }
-
-    
+    }  
 }
 
-$details = new ComplainController;
 
 ?>

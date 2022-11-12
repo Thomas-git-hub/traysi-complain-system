@@ -22,7 +22,7 @@
 <?php 
 include_once("includes/sidenav.php");
 
-include_once("includes/config/app.php");
+include_once("includes/app.php");
 include_once("includes/auth.php");
 include_once("includes/Controller/ComplainController.php");
 

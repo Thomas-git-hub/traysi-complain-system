@@ -14,12 +14,12 @@ if(isset($_GET['logout']))
 if(isset($_POST['login']))
 {
     $fullname = validateInput($db->conn,$_POST['fullname']);
-    $code = validateInput($db->conn,$_POST['code']);
+    $contact_no = validateInput($db->conn,$_POST['contact_no']);
 
    
     $checkLogin = $auth->login($fullname, $code);
     if($checkLogin){
-        redirect("", "president/index.php");
+        redirect("", "driver/index.php");
     }
     else
     {
