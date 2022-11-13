@@ -19,12 +19,12 @@
 <?php 
 include_once("includes/sidenav.php");
 
-include_once("includes/app.php");
-include_once("includes/auth.php");
-include_once("includes/Controller/ComplainController.php");
+require("includes/auth.php");
+require("includes/Controller/ComplainController.php");
 
 // Validation if user is not Logged In
-include_once("includes/Controller/AuthenticationController.php");
+require_once("includes/Controller/AuthenticationController.php");
+$authenticated = new AuthenticationController;
     
 $data = $authenticated->authDetails();
 ?>
@@ -57,7 +57,7 @@ $data = $authenticated->authDetails();
                 ?>
                 <tr> 
                     <td><?= $row['fullname'] ?></td>
-                    <td><a href="view-message-resolve.php"><?= $row['others'] ?></td>
+                    <td><a href="view-message-resolve.php?id=<?= $row['id'] ?> "><?= $row['others'] ?></td>
                     <td><?= $row['date'] ?></td>
                     <td><?= $row['time'] ?></td>
                 </tr>

@@ -22,14 +22,13 @@
 <?php 
 include_once("includes/sidenav.php");
 
-include_once("includes/app.php");
-include_once("includes/auth.php");
-include_once("includes/Controller/ComplainController.php");
+require("includes/auth.php");
+require("includes/Controller/ComplainController.php");
 
 // Validation if user is not Logged In
-include_once("includes/Controller/AuthenticationController.php");
+require_once("includes/Controller/AuthenticationController.php");
+$authenticated = new AuthenticationController;
     
-$data = $authenticated->getComplainDetails();
 ?>
 
 <div class="container">
@@ -39,21 +38,31 @@ $data = $authenticated->getComplainDetails();
         <div class="d-flex justify-content-start flex-row">
           <a href="inbox-complain.php"><i class="bi bi-arrow-left"></i></a>
         </div>
+        <?php
+        if(isset($_GET['id']))
+        {
+          $complain_id = validateInput($db->conn, $_GET['id']);
+          $complain = new ComplainController;
+          $result = $complain->view($complain_id);
+
+          if($result)
+          {
+            ?>
         <div class="d-flex justify-content-start mt-3">
           <h1 class="title-message">Message</h1>&nbsp;
         </div>
         <div class="d-flex justify-content-end flex-row">
-          <h1 class="message-date-time"><?=$data['time']?></h1>&nbsp;
-          <h1 class="message-date-time"><?=$data['date']?></h1>
+          <h1 class="message-date-time"><?=$result['time']?></h1>&nbsp;
+          <h1 class="message-date-time"><?=$result['date']?></h1>
         </div>
         <div class="d-flex justify-content-center">
           <div class="card inner-card" style="width: 43rem;">
             <div class="card-body">
-              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small><?=$data['fullname']?></small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small><?=$data['email']?></small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small><?=$data['contact_no']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small><?=$result['fullname']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small><?=$result['email']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small><?=$result['contact_no']?></small></h1>
               <h1 class="h1-view-mes-con mt-5"><i class="bi bi-chat-left-text-fill">&nbsp;</i></h1>
-              <h1 class="h1-view-mes-con"><small style="font-weight: normal;"><?=$data['others']?></small></h1>
+              <h1 class="h1-view-mes-con"><small style="font-weight: normal;"><?=$result['others']?></small></h1>
             </div>
           </div>
         </div>
@@ -72,9 +81,9 @@ $data = $authenticated->getComplainDetails();
         </div>
       </div>
     </div>
+
   </div>
 </div>
-
 
 <!-- modal -->
 
@@ -91,7 +100,7 @@ $data = $authenticated->getComplainDetails();
       <form action=""  method="post" id="profFrm" onsubmit="">
         <div class="modal-body">
           <div class="form-group mt-3">
-            <h1 class="h1-view-mes-con">To:&nbsp;&nbsp;<small style="font-weight: normal; font-style: italic;"><?=$data['fullname']?></small></h1>
+            <h1 class="h1-view-mes-con">To:&nbsp;&nbsp;<small style="font-weight: normal; font-style: italic;"><?=$result['fullname']?></small></h1>
             <!-- <input type="email" class="form-control" id="" aria-describedby="" placeholder=""> -->
           </div>
           <div class="form-group mt-3">
@@ -106,6 +115,19 @@ $data = $authenticated->getComplainDetails();
     </div>
   </div>
 </div>
+<?php
+      }
+      else
+
+      {
+        echo "<h4> No Record Found</h4>";
+      }
+    }
+    else
+    {
+      echo "<h4> Something went wrong</h4>";
+    }
+?>
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.min.js"></script>

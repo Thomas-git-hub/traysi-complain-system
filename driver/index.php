@@ -18,10 +18,19 @@
   <title>Report</title>
 </head>
 <body>
+<?php
+    
+    // Validation if user is not Logged In
+    include_once("includes/Controller/AuthenticationController.php");
+    include_once("includes/auth.php");
+
+    $authenticated = new AuthenticationController;
+   ?>
 
 <div class="container-fluid row-welcome">
     <h1 class="h1-welcome">Complaint & Report Management System</h1>
-    <h1 class="h1-welcome-driver"><i class="bi bi-person-circle">&nbsp;</i>Welcome Driver!</h1>
+    <?php $data = $authenticated->authDetails(); ?>
+    <h1 class="h1-welcome-driver"><i class="bi bi-person-circle">&nbsp;</i>Welcome <?= $data['fullname'] ?>!</h1>
 </div>
 
 <div class="container">
