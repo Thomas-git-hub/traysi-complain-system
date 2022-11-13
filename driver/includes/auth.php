@@ -13,8 +13,8 @@ if(isset($_GET['logout']))
 
 if(isset($_POST['login']))
 {
-    $fullname = validateInput($db->conn,$_POST['fullname']);
-    $contact_no = validateInput($db->conn,$_POST['contact_no']);
+    $fullname = validInput($db->conn,$_POST['fullname']);
+    $contact_no = validInput($db->conn,$_POST['contact_no']);
 
    
     $checkLogin = $auth->login($fullname, $code);

@@ -22,7 +22,7 @@
   <h1 class="page-title"><i class="bi bi-exclamation-circle-fill">&nbsp;</i>C r i t e r i a</h1>
     
   <div class="d-flex justify-content-end">
-    <button class="btn col-btn-create" data-toggle="modal" data-target="#addCriteria"><i class="bi bi-plus-circle-fill">&nbsp;</i>Add Criteria</button>
+    <button class="btn col-btn-create" data-toggle="modal" data-target="#addCrit"><i class="bi bi-plus-circle-fill">&nbsp;</i>Add Criteria</button>
   </div>
 
     <div class="row table">
@@ -54,43 +54,8 @@
 
 <!-- modal -->
 
-<!-- Add Criteria -->
-<div class="modal fade" id="addCriteria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">A d d &nbsp;&nbsp; C r i t e r i a</h5>
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-      </div>
-      <form action=""  method="post" id="profFrm" onsubmit="">
-        <div class="modal-body">
-          <div class="form-group mt-3">
-            <i class="bi bi-card-text mx-2 mb-1"></i>
-            <textarea class="form-control" id="" rows="3" placeholder="Update Criteria"></textarea>
-            <!--MUST SHOW EXISTING CRITERIA -->
-          </div>
-          <div class="form-group mt-3">
-            <i class="bi bi-pin-map mx-2 mb-1"></i>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option selected="true" disabled="disabled">Select Offense</option>
-              <option value="1st offense">1st offense</option>
-              <option value="2nd Offense">2nd Offense</option>
-              <option value="3rd Offense">3rd Offense</option>
-            </select>
-          </div>
-
-          <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" class="modal-btn-upd">Update</button>
-          </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- UPDATE Criteria -->
-<div class="modal fade" id="updCriteria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Update Criteria -->
+<div class="modal fade" id="addCrit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header d-flex justify-content-center">
@@ -102,13 +67,13 @@
       <form action=""  method="post" id="profFrm" onsubmit="">
         <div class="modal-body">
           <div class="form-group mt-3">
-            <i class="bi bi-card-text mx-2 mb-1"></i>
-            <textarea class="form-control" id="" rows="3" placeholder="Enter Criteria"></textarea>
+            <i class="bi bi-card-text"></i>
+            <textarea class="form-control" id="" rows="3" placeholder="Change Criteria"></textarea>
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-pin-map mx-2 mb-1"></i>
             <select class="form-control" id="exampleFormControlSelect1">
-              <option selected="true" disabled="disabled">Select Offense</option>
+              <option selected="true" disabled="disabled">Change Offense</option>
               <option value="1st offense">1st offense</option>
               <option value="2nd Offense">2nd Offense</option>
               <option value="3rd Offense">3rd Offense</option>
@@ -122,7 +87,6 @@
     </div>
   </div>
 </div>
-
 
 
 <script src="../js/jquery.min.js"></script>

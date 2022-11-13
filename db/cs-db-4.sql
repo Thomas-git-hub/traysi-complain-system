@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2022 at 02:57 PM
+-- Generation Time: Nov 13, 2022 at 06:17 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -40,6 +40,15 @@ CREATE TABLE `complain_tbl` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `complain_tbl`
+--
+
+INSERT INTO `complain_tbl` (`id`, `user_id`, `toda_id`, `offense_id`, `driver_id`, `others`, `upload_image`, `status`, `created_at`, `updated_at`) VALUES
+(3, 1, 1, 1, 2, 'test', NULL, 'R', '2022-11-13 03:42:45', '2022-11-13 03:42:45'),
+(4, 2, 1, 1, 2, 'test', NULL, 'P', '2022-11-13 03:44:14', '2022-11-13 03:48:37'),
+(5, 1, 1, 1, 2, 'test', NULL, 'RS', '2022-11-13 03:44:19', '2022-11-13 03:44:19');
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +67,15 @@ CREATE TABLE `driver` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `driver`
+--
+
+INSERT INTO `driver` (`id`, `fullname`, `plate_no`, `contact_no`, `email`, `toda_id`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'driver1', 'EDS638', 09473482764, 'driver1@gmail.com', 1, 'Active', '2022-11-13 03:27:42', '2022-11-13 03:27:42'),
+(3, 'driver2', 'APG4985', 09473482764, 'driver2@gmail.com', 2, 'Active', '2022-11-13 03:28:47', '2022-11-13 03:28:47'),
+(4, 'driver3', 'FGH48504', 09732732737, 'driver3@gmail.com', 2, 'Active', '2022-11-13 03:29:05', '2022-11-13 03:29:05');
+
 -- --------------------------------------------------------
 
 --
@@ -71,6 +89,13 @@ CREATE TABLE `offense_tbl` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `offense_tbl`
+--
+
+INSERT INTO `offense_tbl` (`id`, `offense_desc`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'foul words', '1st', '2022-11-13 03:17:35', '2022-11-13 03:17:35');
 
 -- --------------------------------------------------------
 
@@ -89,6 +114,14 @@ CREATE TABLE `president` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `president`
+--
+
+INSERT INTO `president` (`id`, `fullname`, `email`, `contact_no`, `toda_id`, `code`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'pres1', 'pres1@gmail.com', 09876543210, 1, 'kdjxg', 'Active', '2022-11-13 03:16:37', '2022-11-13 03:16:37'),
+(2, 'pres2', 'pres2@gmail.com', 09876543286, 2, 'hdjhs', 'Active', '2022-11-13 03:17:11', '2022-11-13 03:17:11');
 
 -- --------------------------------------------------------
 
@@ -119,6 +152,14 @@ CREATE TABLE `toda_pres` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `toda_pres`
+--
+
+INSERT INTO `toda_pres` (`toda_id`, `pres_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Active', '2022-11-13 03:17:21', '2022-11-13 03:17:21'),
+(2, 2, 'Active', '2022-11-13 03:17:29', '2022-11-13 03:17:29');
+
 -- --------------------------------------------------------
 
 --
@@ -135,6 +176,14 @@ CREATE TABLE `toda_tbl` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `toda_tbl`
+--
+
+INSERT INTO `toda_tbl` (`id`, `toda_name`, `from_point`, `to_point`, `color`, `created_at`, `updated_at`) VALUES
+(1, 'test toda 1', 'from test 1', 'to test 1', 'green', '2022-11-13 03:11:35', '2022-11-13 03:11:35'),
+(2, 'test toda 2', 'from test 2', 'to test 12', 'red', '2022-11-13 03:12:02', '2022-11-13 03:12:02');
+
 -- --------------------------------------------------------
 
 --
@@ -149,6 +198,14 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `fullname`, `email`, `contact_no`, `created_at`, `updated_at`) VALUES
+(1, 'user1', 'user1@gmail.com', 09123456789, '2022-11-13 03:11:01', '2022-11-13 03:11:01'),
+(2, 'user2', 'user2@gmail.com', 09123456780, '2022-11-13 03:47:53', '2022-11-13 03:47:53');
 
 --
 -- Indexes for dumped tables
@@ -219,25 +276,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `complain_tbl`
 --
 ALTER TABLE `complain_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `offense_tbl`
 --
 ALTER TABLE `offense_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `president`
 --
 ALTER TABLE `president`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reply_tbl`
@@ -249,13 +306,13 @@ ALTER TABLE `reply_tbl`
 -- AUTO_INCREMENT for table `toda_tbl`
 --
 ALTER TABLE `toda_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
