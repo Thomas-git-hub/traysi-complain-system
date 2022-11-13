@@ -19,16 +19,12 @@
 </head>
 <body>
 <?php 
-include_once("includes/navbar.php");
-
-include_once("president/includes/app.php");
-include_once("president/includes/auth.php");
-
-include_once("driver/includes/config/app.php");
-
-
+include("includes/navbar.php");
+include("president/includes/app.php");
+include("president/includes/auth.php");
 
 $auth->isLoggedIn();
+
 
 
 ?>
@@ -96,6 +92,7 @@ $auth->isLoggedIn();
       <!-- end user form -->
 
       <!-- driver form -->
+    
       <div id="driverLogin">
       <form id="theform" action="driver/includes/auth.php" method="POST" >
       <div class="form-group mt-3">

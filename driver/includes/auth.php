@@ -17,7 +17,7 @@ if(isset($_POST['login']))
     $contact_no = validateInput($db->conn,$_POST['contact_no']);
 
    
-    $checkLogin = $auth->login($fullname, $code);
+    $checkLogin = $auth->login($fullname, $contact_no);
     if($checkLogin){
         redirect("", "driver/index.php");
     }

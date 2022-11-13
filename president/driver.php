@@ -19,12 +19,13 @@
 <?php 
 include_once("includes/sidenav.php");
 
-include_once("includes/app.php");
-include_once("includes/auth.php");
-include_once("includes/Controller/DriverController.php");
+require("includes/auth.php");
+require("includes/Controller/DriverController.php");
 
     // Validation if user is not Logged In
-    include_once("includes/Controller/AuthenticationController.php");
+    require_once("includes/Controller/AuthenticationController.php");
+    $authenticated = new AuthenticationController;
+    $data = $authenticated->authDetails();
 ?>
 
 <div class="container">
