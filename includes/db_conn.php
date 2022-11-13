@@ -5,7 +5,7 @@ class db_conn
     protected $host = 'localhost';
     protected $user = 'root';
     protected $password ='';
-    protected $database = 'db_test';
+    protected $database = 'cs-db';
 
     public $conn = null;
 

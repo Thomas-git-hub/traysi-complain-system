@@ -10,7 +10,7 @@ class LoginController
 
     public function login($fullname,$contact_no)
     {
-        $checkLogin = "SELECT * FROM president
+        $checkLogin = "SELECT * FROM driver
                         WHERE 
                              fullname = '$fullname '
                          AND contact_no = '$contact_no'

@@ -16,10 +16,11 @@
 </head>
 <body>
   <?php
-    include_once("includes/sidenav.php");
+   require("includes/sidenav.php");
     
     // Validation if user is not Logged In
-    include_once("includes/Controller/AuthenticationController.php");
+    require_once("includes/Controller/AuthenticationController.php");
+    $authenticated = new AuthenticationController;
    ?>
 
   <div class="row-header d-flex flex-row">
