@@ -59,7 +59,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">Update &nbsp;&nbsp; C r i t e r i a</h5>
+        <h5 class="modal-header-title" id="exampleModalLabel">A d d &nbsp;&nbsp; C r i t e r i a</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
@@ -94,7 +94,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">A d d &nbsp;&nbsp; C r i t e r i a</h5>
+        <h5 class="modal-header-title" id="exampleModalLabel">U p d a t e &nbsp;&nbsp; C r i t e r i a</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
