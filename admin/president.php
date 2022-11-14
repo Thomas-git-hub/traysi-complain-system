@@ -36,15 +36,32 @@
                 </tr>
             </thead>
             <tbody>
-                <tr> 
-                    <td>John Doe</td>
-                    <td>Toda1</td>
-                    <td>Active</td>
-                    <td>
-                      <button class="btn-enable px-3 py-1">Enabled</button>
-                      <button class="btn-disable px-3 py-1">Disabled</button>
-                    </td>
-                </tr>
+                <?php
+                  $servername='localhost';
+                  $username='root';
+                  $password='';
+                  $dbname = "cs-db";
+                  $conn=mysqli_connect($servername,$username,$password,"$dbname");
+                    if(!$conn){
+                        die('Could not Connect MySql Server:' .mysql_error());
+                      }
+                   
+                   $query = "SELECT president.fullname, toda_tbl.toda_name, president.status FROM `president` INNER JOIN toda_tbl ON president.toda_id=toda_tbl.id";
+                   $result = mysqli_query($conn, $query);
+                   if (mysqli_num_rows($result) > 0) {
+                       while ($Row = mysqli_fetch_assoc($result)) { ?>
+                             <tr>
+                                <td><?php echo $Row["fullname"]; ?></td>
+                                <td><?php echo $Row["toda_name"]; ?></td>
+                                <td><?php echo $Row["status"]; ?></td> 
+                                <td>
+                                  <button class="btn-enable px-3 py-1">Enabled</button>
+                                  <button class="btn-disable px-3 py-1">Disabled</button>
+                                </td>
+                              </tr>
+                            <?php }
+                        }
+                   ?>
             </tbody>
         </table>
     </div>
@@ -52,7 +69,7 @@
 
 <!-- modal -->
 
-<!-- Create New Toda -->
+<!-- Create New President -->
 <div class="modal fade" id="newToda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -66,28 +83,42 @@
         <div class="modal-body">
           <div class="form-group mt-3">
             <i class="bi bi-geo-alt-fill mx-2 mb-1"></i>
-            <select class="form-control" id="exampleFormControlSelect1" >
-              <option selected="true" disabled="disabled">Assign Toda</option>
-              <option value="">Toda1</option>
-              <option value="">Toda2</option>
-              <option value="">Toda3</option>
-            </select>
+            <select  name="toda" class="form-control" id="exampleFormControlSelect1" >
+              <?php
+                  $servername='localhost';
+                  $username='root';
+                  $password='';
+                  $dbname = "cs-db";
+                  $conn=mysqli_connect($servername,$username,$password,"$dbname");
+                    if(!$conn){
+                        die('Could not Connect MySql Server:' .mysql_error());
+                      }
+                    $sql = "SELECT * FROM toda_tbl";
+                    $all_categories = mysqli_query($conn,$sql);
+                    while ($category = mysqli_fetch_array($all_categories,MYSQLI_ASSOC)):;?>
+                        <option value="<?php echo $category["id"];?>">
+                            <?php echo $category["toda_name"];?>
+                        </option>
+            <?php
+                    endwhile;
+            ?>
+            ?>
           </div>
-          <div class="form-group mt-3">
+          <div class="form-group mt-3" style="margin-top: 50px;">
             <i class="bi bi-person-circle mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Full Name" required>
+            <input type="text" name="pressName" class="form-control" id="" placeholder="Full Name" required>
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-telephone-fill mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="contactField" name="phone" onkeyup=" return validatephone(this.value);" placeholder="Contact (09)" required>
+            <input type="text" class="form-control" name="presNo" id="contactField" name="phone" onkeyup=" return validatephone(this.value);" placeholder="Contact (09)" required>
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-envelope-fill mx-2 mb-1"></i>
-            <input type="email" class="form-control" id="" placeholder="@email.com" required>
+            <input type="email" class="form-control" name="presEmail" id="" placeholder="@email.com" required>
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="submit" class="modal-btn-upd">Enter</button>
+          <button type="submit" name="insertPres" class="modal-btn-upd">Enter</button>
         </div>
       </form>
     </div>
@@ -137,3 +168,33 @@
 
 </body>
 </html>
+
+<?php
+
+    $servername='localhost';
+    $username='root';
+    $password='';
+    $dbname = "cs-db";
+    $conn=mysqli_connect($servername,$username,$password,"$dbname");
+      if(!$conn){
+          die('Could not Connect MySql Server:' .mysql_error());
+        }
+
+
+    if(isset($_POST['insertPres'])){
+        $todaname = $_POST['toda'];
+        $presname = $_POST['pressName'];
+        $presno   = $_POST['presNo'];
+        $presemail    = $_POST['presEmail'];
+$query = "INSERT INTO president (fullname, email, contact_no,toda_id,status)
+          VALUES ('$presname','$presemail','$presno', '$todaname','active')";
+$execute = mysqli_query($conn, $query);
+if($execute=== true){
+  $msg= "Data was inserted successfully";
+}else{
+  $msg= mysqli_error($conn);
+}
+echo "<script> alert($msg); </script>";
+}
+
+?>

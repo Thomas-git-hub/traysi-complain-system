@@ -97,7 +97,7 @@ body {
       <a href="inbox-complain.php">View Complains</a>
     </div>
     <div class="nav-span-a nav-span-a-logout mx-5 mb-3">
-      <a href=""><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
+      <a href="?logout=true"><i name="logout" class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
     </div>
   </div>
 

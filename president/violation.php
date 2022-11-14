@@ -84,42 +84,6 @@ $data = $authenticated->authDetails();
     </div>
 </div>
 
-<!-- modal -->
-
-<!-- Update Criteria -->
-<div class="modal fade" id="addCrit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">U p d a t e &nbsp;&nbsp; C r i t e r i a</h5>
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-      </div>
-      <form action=""  method="post" id="profFrm" onsubmit="">
-        <div class="modal-body">
-          <div class="form-group mt-3">
-            <i class="bi bi-card-text"></i>
-            <textarea class="form-control" id="" rows="3" placeholder="Change Criteria"></textarea>
-          </div>
-          <div class="form-group mt-3">
-            <i class="bi bi-pin-map mx-2 mb-1"></i>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option selected="true" disabled="disabled">Change Offense</option>
-              <option value="1st offense">1st offense</option>
-              <option value="2nd Offense">2nd Offense</option>
-              <option value="3rd Offense">3rd Offense</option>
-            </select>
-          </div>
-
-          <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" class="modal-btn-upd">Update</button>
-          </div>
-      </form>
-    </div>
-  </div>
-</div>
-
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.min.js"></script>
