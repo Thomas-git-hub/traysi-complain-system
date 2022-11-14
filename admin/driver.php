@@ -59,23 +59,23 @@
         <div class="modal-body">
           <div class="form-group mt-3">
             <i class="bi bi-geo-alt-fill mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Toda">
+            <input type="text" class="form-control" name="toda_name" id="" placeholder="Toda">
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-pin-map mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="From">
+            <input type="text" class="form-control" name="toda_from" id="" placeholder="From">
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-pin-map-fill mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="To">
+            <input type="text" class="form-control" name="toda_to" id="" placeholder="To">
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-palette-fill mx-2 mb-1"></i>
-            <input type="text" class="form-control" id="" placeholder="Color">
+            <input type="text" class="form-control" name="toda_color" id="" placeholder="Color">
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="submit" class="modal-btn-upd">Enter</button>
+          <button type="submit" name="submit" class="modal-btn-upd">Enter</button>
         </div>
       </form>
     </div>
@@ -105,3 +105,32 @@
 
 </body>
 </html>
+<?php
+
+    $servername='localhost';
+    $username='root';
+    $password='';
+    $dbname = "cs-db";
+    $conn=mysqli_connect($servername,$username,$password,"$dbname");
+      if(!$conn){
+          die('Could not Connect MySql Server:' .mysql_error());
+        }
+
+
+    if(isset($_POST['submit'])){
+        $todaname = $_POST['toda_name'];
+        $todafrom   = $_POST['toda_from'];
+        $todato    = $_POST['toda_to'];
+        $todacolor   = $_POST['toda_color'];
+$query = "INSERT INTO toda_tbl (toda_name, from_point, to_point,color)
+          VALUES ('$todaname','$todafrom','$todato', '$todacolor')";
+$execute = mysqli_query($conn, $query);
+if($execute=== true){
+  $msg= "Data was inserted successfully";
+}else{
+  $msg= mysqli_error($conn);
+}
+echo $msg;
+}
+
+?>

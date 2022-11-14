@@ -95,7 +95,7 @@ $data = $authenticated->authDetails()
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">U p d a t e &nbsp;&nbsp; C r i t e r i a</h5>
+        <h5 class="modal-header-title" id="exampleModalLabel">S e n d&nbsp;&nbsp; M e s s a g e </h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->

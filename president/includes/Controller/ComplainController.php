@@ -144,6 +144,7 @@ class ComplainController{
             return false;
         }
     }
+    
     public function viewResolved($id)
     {
         $complain_id = validateInput($this->conn, $id);
