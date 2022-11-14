@@ -28,6 +28,9 @@ require("includes/Controller/ComplainController.php");
 // Validation if user is not Logged In
 require_once("includes/Controller/AuthenticationController.php");
 $authenticated = new AuthenticationController;
+
+$data = $authenticated->authDetails() 
+
     
 ?>
 
@@ -47,22 +50,22 @@ $authenticated = new AuthenticationController;
 
           if($result)
           {
-            ?>
+        ?>           
         <div class="d-flex justify-content-start mt-3">
           <h1 class="title-message">Message</h1>&nbsp;
         </div>
         <div class="d-flex justify-content-end flex-row">
-          <h1 class="message-date-time"><?=$result['time']?></h1>&nbsp;
-          <h1 class="message-date-time"><?=$result['date']?></h1>
+          <h1 class="message-date-time"> <?= $result['time'] ?> </h1>&nbsp;
+          <h1 class="message-date-time"> <?= $result['date'] ?></h1>
         </div>
         <div class="d-flex justify-content-center">
           <div class="card inner-card" style="width: 43rem;">
             <div class="card-body">
-              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small><?=$result['fullname']?></small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small><?=$result['email']?></small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small><?=$result['contact_no']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small> <?= $result['fullname'] ?> </small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small> <?= $result['email']?> </small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small> <?= $result['contact_no'] ?> </small></h1>
               <h1 class="h1-view-mes-con mt-5"><i class="bi bi-chat-left-text-fill">&nbsp;</i></h1>
-              <h1 class="h1-view-mes-con"><small style="font-weight: normal;"><?=$result['others']?></small></h1>
+              <h1 class="h1-view-mes-con"><small style="font-weight: normal;"> <?= $result['others'] ?> </small></h1>
             </div>
           </div>
         </div>
@@ -97,19 +100,21 @@ $authenticated = new AuthenticationController;
           <span aria-hidden="true">&times;</span>
         </button> -->
       </div>
-      <form action=""  method="post" id="profFrm" onsubmit="">
+      <form action="includes/reply_conn.php"  method="post" id="profFrm" onsubmit="">
         <div class="modal-body">
           <div class="form-group mt-3">
-            <h1 class="h1-view-mes-con">To:&nbsp;&nbsp;<small style="font-weight: normal; font-style: italic;"><?=$result['fullname']?></small></h1>
+            <?php ?>
+          <input type="text" hidden class="form-control" name="user_id" value=" <?= $result['user_id'] ?>" id="">
+          <input type="text" hidden class="form-control" name="pres_id" value=" <?= $data['id']  ?>" id="">
+            <h1 class="h1-view-mes-con">To:&nbsp;&nbsp;<small style="font-weight: normal; font-style: italic;"><?= $result['fullname'] ?></small></h1>
             <!-- <input type="email" class="form-control" id="" aria-describedby="" placeholder=""> -->
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-reply-fill mx-2"></i>
-            <textarea class="form-control" id="" rows="3" placeholder="Message"></textarea>
+            <textarea name="message" class="form-control" id="" rows="3" placeholder="Message"></textarea>
           </div>
-
           <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" class="modal-btn-upd">Send</button>
+            <button type="submit" name="reply" class="modal-btn-upd">Send</button>
           </div>
       </form>
     </div>

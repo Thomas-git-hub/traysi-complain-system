@@ -11,9 +11,10 @@ class LoginController
     public function login($fullname,$code)
     {
         $checkLogin = "SELECT * FROM president
-                        WHERE 
-                             fullname = '$fullname '
+                        WHERE 1=1
+                         AND fullname = '$fullname '
                          AND code = '$code'
+                         AND status = 'Active'
                          LIMIT 1";
         $result = $this->conn->query($checkLogin);
         if($result->num_rows > 0){

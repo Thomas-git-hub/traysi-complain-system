@@ -7,7 +7,8 @@ if(isset($_GET['logout']))
 {
     $checkLoggedOut = $auth->isLoggedOut();
     if($checkLoggedOut){
-         header("location: ../index.php");
+        //  header("location: ../index.php");
+         redirect("User Successfully Logged Out", "login.php");
     }
 }
 

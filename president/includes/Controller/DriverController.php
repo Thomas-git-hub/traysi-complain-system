@@ -46,6 +46,51 @@ class DriverController{
             return false;
         }
     }
+
+    public function updateToActive($id)
+    {
+        $driver_id = validateInput($this->conn, $id);
+        $driverQuery = "UPDATE driver 
+                        SET status = 'Active' 
+                        WHERE id = '$driver_id' 
+                        LIMIT 1";
+        $result = $this->conn->query($driverQuery);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    public function updateToDeactivate($id)
+    {
+        $driver_id = validateInput($this->conn, $id);
+        $driverQuery = "UPDATE driver 
+                        SET status = 'Inactive' 
+                        WHERE id = '$driver_id' 
+                        LIMIT 1";
+        $result = $this->conn->query($driverQuery);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function clearComplain($id)
+    {
+        $complain_id = validateInput($this->conn, $id);
+        $driverQuery = "DELETE FROM complain_tbl WHERE id  = '$complain_id' 
+                        LIMIT 1";
+        $result = $this->conn->query($driverQuery);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
 
 

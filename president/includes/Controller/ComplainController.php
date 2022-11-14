@@ -8,9 +8,30 @@ class ComplainController{
         $this->conn = $db->conn;
     }
 
+    public function reply($inputData)
+    {
+        $data = "'". implode("' , '", $inputData). "'";
+        echo $data;
+        
+
+        $Query = "INSERT INTO reply_tbl (`user_id`
+        ,`pres_id`
+         ,`message`)
+                    VALUES($data)";
+        $result = $this->conn->query($Query);
+        if($result){
+            return true;
+        }
+        else{
+         return false;   
+        }
+    }
+
+
     public function getViolation(){
         $user_id = $_SESSION['auth_user']['id'];
-        $ViolaionQuery = "SELECT e.type
+        $ViolaionQuery = "SELECT a.id
+                               ,e.type
                                , d.fullname
                                , d.plate_no
                                , a.`status`
@@ -123,44 +144,49 @@ class ComplainController{
             return false;
         }
     }
-    public function viewResolved()
+    public function viewResolved($id)
     {
-            $user_id = $_SESSION['auth_user']['id'];
+        $complain_id = validateInput($this->conn, $id);
+        $user_id = $_SESSION['auth_user']['id'];
+        $sql= "SELECT 
+                        a.id
+                    ,e.fullname
+                    ,e.email
+                    ,e.contact_no
+                    ,a.others
+                    ,a.upload_image
+                    ,date_format(a.created_at, '%m-%d-%Y') as `date`
+                    ,date_format(a.created_at, '%h:%i %p') as `time`
+                    ,a.user_id
+                    ,a.status
+                FROM complain_tbl as a
+                LEFT JOIN toda_tbl as b 
+                ON b.id = a.toda_id
+                LEFT JOIN president as c
+                ON c.toda_id = b.id
+                LEFT JOIN driver as d 
+                ON a.driver_id = d.id
+                LEFT JOIN users as e 
+                ON a.user_id = e.id
+                LEFT JOIN offense_tbl as f
+                ON a.offense_id = f.id
+                WHERE 1=1 
+                AND c.id = '$user_id'
+                AND a.id = '$complain_id' 
+                AND a.status = 'RS'
+                LIMIT 1";
 
-            $sql= "SELECT e.fullname
-                        ,e.email
-                        ,e.contact_no
-                        ,a.others
-                        ,a.upload_image
-                        ,date_format(a.created_at, '%m-%d-%Y') as `date`
-                        ,date_format(a.created_at, '%h:%i %p') as `time`
-                        ,a.`status`
-                    FROM complain_tbl as a
-                    LEFT JOIN toda_tbl as b 
-                    ON b.id = a.toda_id
-                    LEFT JOIN president as c
-                    ON c.toda_id = b.id
-                    LEFT JOIN driver as d 
-                    ON a.driver_id = d.id
-                    LEFT JOIN users as e 
-                    ON a.user_id = e.id
-                    LEFT JOIN offense_tbl as f
-                    ON a.offense_id = f.id
-                    WHERE 1=1
-                    AND e.id = '$user_id'
-                    AND a.`status` = 'RS' ";
+        $result = $this->conn->query($sql);
+        if($result->num_rows == 1){
 
-            $result = $this->conn->query($sql);
-            if($result->num_rows  > 0){
-
-                $data = $result->fetch_assoc();
-                return $data;
-            }
-            else
-            {
-                redirect ("Record Not Found", "president/resolved.php");
-            }
-    }
+            $data = $result->fetch_assoc();
+            return $data;
+        }
+        else
+        {
+            return false;
+        }
+    } 
     public function view($id)
     {
         $complain_id = validateInput($this->conn, $id);

@@ -22,4 +22,43 @@ if(isset($_POST['save']))
    
 }
 
+if(isset($_POST['active']))
+{
+    $id = validateInput($db->conn,$_POST['id']);
+    $driver = new DriverController;
+    $result = $driver->updateToActive($id);
+    if($result){
+        redirect("Status Updated Sucessfully", "president/driver.php");
+     }else{
+         redirect("Something went wrong", "president/driver.php");
+     }
+
+}
+
+if(isset($_POST['inactive']))
+{
+    $id = validateInput($db->conn,$_POST['id']);
+    $driver = new DriverController;
+    $result = $driver->updateToDeactivate($id);
+    if($result){
+        redirect("Status Updated Sucessfully", "president/driver.php");
+     }else{
+         redirect("Something went wrong", "president/driver.php");
+     }
+
+}
+
+if(isset($_POST['clear'])){
+    
+    $id = validateInput($db->conn,$_POST['id']);
+    $driver = new DriverController;
+    $result = $driver->clearComplain($id);
+    if($result){
+        
+        redirect("Violation Cleared Sucessfully", "president/violation.php");
+     }else{
+         redirect("Something went wrong", "president/violation.php");
+     }
+}
+
 ?>
