@@ -54,9 +54,34 @@ class AuthenticationController
         if($checkAuth){
             $user_id = $_SESSION['auth_user']['id'];
 
-            $getDriverperPres= "SELECT * FROM `president` WHERE toda_id = '$user_id'";
+            $getPres= "SELECT * FROM `president` WHERE toda_id = '$user_id'";
 
-            $result = $this->conn->query($getDriverperPres);
+            $result = $this->conn->query($getPres);
+            if($result->num_rows  > 0){
+
+                $data = $result->fetch_assoc();
+                return $data;
+            }
+            else
+            {
+                redirect ("Record Not Found", "index.php");
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function authUserDetails()
+    {
+        $checkAuth = $this->checkIsLoggedIn();
+        if($checkAuth){
+            $user_id = $_SESSION['auth_user']['id'];
+
+            $getUser= "SELECT * FROM `users` WHERE id = '$user_id'";
+
+            $result = $this->conn->query($getUser);
             if($result->num_rows  > 0){
 
                 $data = $result->fetch_assoc();
@@ -74,7 +99,5 @@ class AuthenticationController
     }
     
 }
-
-
 
 ?>

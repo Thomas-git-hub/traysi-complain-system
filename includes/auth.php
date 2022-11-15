@@ -46,4 +46,21 @@ if(isset($_POST['login_admin']))
         
     }
 }
+if(isset($_POST['login_user']))
+{
+    $fullname = validateInput($db->conn,$_POST['fullname']);
+    $contact_no = validateInput($db->conn,$_POST['contact_no']);
+
+   
+    $checkUserLogin = $auth->Userlogin($fullname,$contact_no);
+    if($checkUserLogin){
+        redirect("", "user/index.php");
+    }
+    else
+    {
+        redirect("Invalid Credentials", "login.php");
+        exit();
+        
+    }
+}
 ?>

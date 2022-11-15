@@ -76,14 +76,14 @@ $auth->isLoggedIn();
 
       <!-- user form -->
       <div id="userLogin">
-      <form id="theform" action="" method="POST" >
+      <form id="theform" action="includes/auth.php" method="POST" >
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="userFullname" aria-describedby="" placeholder="User Full Name">
+        <input type="text" class="form-control" id="userFullname" name = "fullname" aria-describedby="" placeholder="User Full Name">
       </div>
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="userContactfield" name="phone" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
+        <input type="text" class="form-control" id="userContactfield" name="contact_no" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
       </div>
-      <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      <button type="submit" id="btn" name= "login_user" class="btn mt-3">Login</button>
       </form>
       </div>
       <!-- end user form -->
