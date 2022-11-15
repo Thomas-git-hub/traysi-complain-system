@@ -1,6 +1,6 @@
 <?php
 if(isset($_SESSION['message']))
 {
-    echo "<h4>".$_SESSION['message']."</h4>";
+    echo "<h3>".$_SESSION['message']."</h3>";
     unset($_SESSION['message']);
 }

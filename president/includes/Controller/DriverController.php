@@ -13,14 +13,27 @@ class DriverController{
     {
         $data = "'". implode("' , '", $inputData). "'";
         // echo $data;
-        
-
         $driverQuery = "INSERT INTO driver ( fullname
                                             ,plate_no
                                             ,contact_no
                                             ,email
                                             ,toda_id)
                                             VALUES($data)";
+        $result = $this->conn->query($driverQuery);
+        if($result){
+            return true;
+        }
+        else{
+         return false;   
+        }
+    }
+
+    public function check($d_name, $d_plate_no)
+    {
+        $d_name = validateInput($this->conn, $fullname);
+        $d_plate_no = validateInput($this->conn, $plate_no);
+
+        $driverQuery = "SELECT * FROM driver WHERE fullname = '$d_name' AND plate_no = '$d_plate_no'";
         $result = $this->conn->query($driverQuery);
         if($result){
             return true;

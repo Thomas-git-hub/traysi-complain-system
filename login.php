@@ -20,13 +20,10 @@
 <body>
 <?php 
 include("includes/navbar.php");
-include("president/includes/app.php");
-include("president/includes/auth.php");
+include("includes/app.php");
+include("includes/auth.php");
 
 $auth->isLoggedIn();
-
-
-
 ?>
 
 <div class="container con-login">
@@ -50,21 +47,21 @@ $auth->isLoggedIn();
       </div>
       <!-- admin form -->
       <div id="adminLogin">
-      <form id="theform" action="" method="POST" >
+      <form id="theform" action="includes/auth.php" method="POST" >
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="adminFullname" aria-describedby="" placeholder="Admin Full Name">
+        <input type="text" class="form-control" id="adminFullname" name="fullname" aria-describedby="" placeholder="Admin Full Name">
       </div>
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="adminCode" name="phone" placeholder="Code">
+        <input type="text" class="form-control" id="adminCode" name="code" placeholder="Code">
       </div>
-      <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      <button type="submit" id="btn" name= "login_admin" class="btn mt-3">Login</button>
       </form>
       </div>
       <!-- end admin form -->
 
       <!-- president form -->
       <div id="presidentLogin">
-      <form id="theform" action="president/includes/auth.php" method="POST" >
+      <form id="theform" action="includes/auth.php" method="POST" >
 
         <div class="form-group mt-3">
           <input type="text" class="form-control"  id="presidentFullname" name="fullname" aria-describedby="" placeholder="President Full Name">
@@ -72,7 +69,7 @@ $auth->isLoggedIn();
         <div class="form-group mt-3">
           <input type="text" class="form-control" id="presidentCode" name="code" placeholder="Code">
         </div>
-        <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+        <button type="submit" id="btn" name= "login_pres" class="btn mt-3">Login</button>
       </form>
       </div>
       <!-- end president form -->

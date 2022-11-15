@@ -4,6 +4,12 @@ include_once("Controller/DriverController.php");
 
 if(isset($_POST['save']))
 {
+
+    $fullname = validateInput($db->conn,$_POST['fullname']);
+    $plate_no = validateInput($db->conn,$_POST['plate_no']);
+    $contact_no = validateInput($db->conn,$_POST['contact_no']);
+    $email = validateInput($db->conn,$_POST['email']);
+
     $inputData = [
         'fullname' =>  validateInput($db->conn,$_POST['fullname']),
         'plate_no' =>  validateInput($db->conn,$_POST['plate_no']),
@@ -12,12 +18,24 @@ if(isset($_POST['save']))
         'toda_id' =>  validateInput($db->conn,$_POST['toda_id']),
     ];
 
+    
     $driver = new DriverController;
-    $result = $driver->create($inputData);
+    $result = $driver->check($d_name, $d_plate_no);
     if($result){
-       redirect("Driver Added Sucessfully", "president/driver.php");
-    }else{
-        redirect("Something went wrong", "president/driver.php");
+       redirect("Driver Exist", "president/driver.php");
+    }
+    else{
+
+        $result = $driver->create($inputData);
+        if($result){
+
+            redirect("Driver Added Successfully", "president/driver.php");
+        }
+        else
+        {
+            redirect("Something went wrong", "president/driver.php");
+        }
+        redirect("Something went wrong!", "president/driver.php");
     }
    
 }

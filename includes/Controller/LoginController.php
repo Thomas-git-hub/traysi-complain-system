@@ -1,5 +1,5 @@
 <?php
-
+include_once("includes/app.php");
 class LoginController
 {
     public function __construct()
@@ -17,6 +17,26 @@ class LoginController
                          AND status = 'Active'
                          LIMIT 1";
         $result = $this->conn->query($checkLogin);
+        if($result->num_rows > 0){
+            $data = $result->fetch_assoc();
+            $this->userAuthentication($data);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function Adminlogin($fullname,$code)
+    {
+        $checkAdminLogin = "SELECT * FROM `admin`
+                        WHERE 1=1
+                         AND fullname = '$fullname '
+                         AND code = '$code'
+                         AND status = 'Active'
+                         LIMIT 1";
+        $result = $this->conn->query($checkAdminLogin);
         if($result->num_rows > 0){
             $data = $result->fetch_assoc();
             $this->userAuthentication($data);

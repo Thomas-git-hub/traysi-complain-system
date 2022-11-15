@@ -15,17 +15,32 @@
   <title>Report</title>
 </head>
 <body>
-  <?php include_once("includes/sidenav.php") ?>
+<?php
+   require("includes/sidenav.php");
+   
+    
+    // Validation if user is not Logged In
+    // require_once("includes/Controller/AuthenticationController.php");
+    include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
+    $authenticated = new AuthenticationController;
+
+   ?>
 
 <div class="row-header d-flex flex-row">
     <div class="col col-img d-flex justify-content-center">
       <img class="img-svg" src="assets/svg/otw.svg" alt="">
     </div>
+
+      <!----- Validation Design Here Please---->
+      <?php include_once("includes/message.php") ?>
+      <!------------------------------------------>
+      
     <div class="col">
       <h1 class="header-title-1">Traysi</h1>
       <h1 class="header-title-2">Complain & Report</h1>
       <h1 class="header-title-3">Management System</h1>
-      <h1 class="header-title-4"><i class="bi bi-emoji-laughing-fill">&nbsp;</i>Hello, Welcome Admin!</h1>
+      <?php $data = $authenticated->authAdminDetails(); ?>
+      <h1 class="header-title-4"><i class="bi bi-emoji-laughing-fill">&nbsp;</i>Hello, Welcome <?= $data['fullname'] ?>!</h1>
     </div>
 </div>
 

@@ -1,31 +1,14 @@
 <?php
 include_once("app.php");
-include_once("admin/includes/Controller/LoginController.php");
-$auth = new LoginController;
+include_once("Controller/AdminController.php");
+$auth = new AdminController;
 
 if(isset($_GET['logout']))
 {
     $checkLoggedOut = $auth->isLoggedOut();
     if($checkLoggedOut){
-         header("location: ../index.php");
+        redirect("User Successfully Logged Out", "login.php");
     }
 }
 
-if(isset($_POST['adminlogin']))
-{
-    $adminname = validateInput($db->conn,$_POST['adminname']);
-    $adminphone = validateInput($db->conn,$_POST['adminphone']);
-
-   
-    $checkLogin = $auth->login($adminname, $adminphone);
-    if($checkLogin){
-        redirect("", "admin/index.php");
-    }
-    else
-    {
-        redirect("Invalid Credentials", "login.php");
-        exit();
-        
-    }
-}
 ?>

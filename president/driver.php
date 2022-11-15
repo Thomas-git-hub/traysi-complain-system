@@ -23,7 +23,9 @@ require("includes/auth.php");
 require("includes/Controller/DriverController.php");
 
     // Validation if user is not Logged In
-    require_once("includes/Controller/AuthenticationController.php");
+    
+    // require_once("includes/Controller/AuthenticationController.php");
+    include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
     $authenticated = new AuthenticationController;
     $data = $authenticated->authDetails();
 ?>
