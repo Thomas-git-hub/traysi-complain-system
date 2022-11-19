@@ -13,8 +13,6 @@ class DriverController{
     {
         $data = "'". implode("' , '", $inputData). "'";
         // echo $data;
-        
-
         $driverQuery = "INSERT INTO driver ( fullname
                                             ,plate_no
                                             ,contact_no
@@ -23,6 +21,19 @@ class DriverController{
                                             VALUES($data)";
         $result = $this->conn->query($driverQuery);
         if($result){
+            return true;
+        }
+        else{
+         return false;   
+        }
+    }
+
+    public function isDriverExists ($plate_no, $contact_no){
+        $checkUser = "SELECT * FROM driver
+                      WHERE plate_no = '$plate_no' OR contact_no = '$contact_no'
+                      LIMIT 1";
+         $result = $this->conn->query($checkUser);
+         if($result->num_rows > 0 ){
             return true;
         }
         else{
@@ -46,6 +57,51 @@ class DriverController{
             return false;
         }
     }
+
+    public function updateToActive($id)
+    {
+        $driver_id = validateInput($this->conn, $id);
+        $driverQuery = "UPDATE driver 
+                        SET status = 'Active' 
+                        WHERE id = '$driver_id' 
+                        LIMIT 1";
+        $result = $this->conn->query($driverQuery);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    public function updateToDeactivate($id)
+    {
+        $driver_id = validateInput($this->conn, $id);
+        $driverQuery = "UPDATE driver 
+                        SET status = 'Inactive' 
+                        WHERE id = '$driver_id' 
+                        LIMIT 1";
+        $result = $this->conn->query($driverQuery);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function clearComplain($id)
+    {
+        $complain_id = validateInput($this->conn, $id);
+        $driverQuery = "DELETE FROM complain_tbl WHERE id  = '$complain_id' 
+                        LIMIT 1";
+        $result = $this->conn->query($driverQuery);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
 
 

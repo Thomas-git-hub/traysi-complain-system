@@ -20,12 +20,8 @@
 <body>
 <?php 
 include("includes/navbar.php");
-include("president/includes/app.php");
-include("president/includes/auth.php");
-
-$auth->isLoggedIn();
-
-
+include("includes/app.php");
+include("includes/auth.php");
 
 ?>
 
@@ -40,7 +36,7 @@ $auth->isLoggedIn();
     
     <h5 class="card-title d-flex justify-content-center mt-2"><i class="bi bi-door-open-fill">&nbsp;</i>L O G I N</h5>
       <div class="form-group mt-3">
-        <select class="form-control" id="selectUser">
+        <select class="form-control" id="selectUser" name= "userType">
           <option selected="true" disabled="disabled">Select User</option>
           <option value="1" id="selectAdmin">Admin</option>
           <option value="2" id="selectPresident">President</option>
@@ -50,43 +46,46 @@ $auth->isLoggedIn();
       </div>
       <!-- admin form -->
       <div id="adminLogin">
-      <form id="theform" action="" method="POST" >
+      <form id="theform" action="includes/auth.php" method="POST" >
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="adminFullname" aria-describedby="" placeholder="Admin Full Name">
+        <input type="text" class="form-control" id="adminFullname" name="fullname" aria-describedby="" placeholder="Admin Full Name">
+        <input hidden class="form-control" id="adminFullname" name="usertype" value= "1" aria-describedby="">
       </div>
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="adminCode" name="phone" placeholder="Code">
+        <input type="text" class="form-control" id="adminCode" name="code" placeholder="Code">
       </div>
-      <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      <button type="submit" id="btn" name= "login_admin" class="btn mt-3">Login</button>
       </form>
       </div>
       <!-- end admin form -->
 
       <!-- president form -->
       <div id="presidentLogin">
-      <form id="theform" action="president/includes/auth.php" method="POST" >
+      <form id="theform" action="includes/auth.php" method="POST" >
 
         <div class="form-group mt-3">
+        <input hidden class="form-control"  id="presidentFullname" name="usertype" value = "2" aria-describedby="" placeholder="">
           <input type="text" class="form-control"  id="presidentFullname" name="fullname" aria-describedby="" placeholder="President Full Name">
         </div>
         <div class="form-group mt-3">
           <input type="text" class="form-control" id="presidentCode" name="code" placeholder="Code">
         </div>
-        <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+        <button type="submit" id="btn" name= "login_pres" class="btn mt-3">Login</button>
       </form>
       </div>
       <!-- end president form -->
 
       <!-- user form -->
       <div id="userLogin">
-      <form id="theform" action="" method="POST" >
+      <form id="theform" action="includes/auth.php" method="POST" >
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="userFullname" aria-describedby="" placeholder="User Full Name">
+        <input type="text" class="form-control" id="userFullname" name = "fullname" aria-describedby="" placeholder="User Full Name">
+        <input hidden class="form-control" id="userFullname" name = "usertype" value = "3" aria-describedby="">
       </div>
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="userContactfield" name="phone" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
+        <input type="text" class="form-control" id="userContactfield" name="contact_no" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
       </div>
-      <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      <button type="submit" id="btn" name= "login_user" class="btn mt-3">Login</button>
       </form>
       </div>
       <!-- end user form -->
@@ -97,6 +96,7 @@ $auth->isLoggedIn();
       <form id="theform" action="driver/includes/auth.php" method="POST" >
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="driverFullname" name="fullname" aria-describedby="" placeholder="Driver Full Name">
+        <input hidden class="form-control" id="driverFullname" name="usertype" value="4" aria-describedby="" placeholder="Driver Full Name">
       </div>
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="driverContactfield" name="contact_no" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">

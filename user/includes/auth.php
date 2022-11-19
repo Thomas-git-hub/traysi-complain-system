@@ -1,7 +1,7 @@
 <?php
 include_once("app.php");
-include_once("Controller/AdminController.php");
-$auth = new AdminController;
+include_once("Controller/UserController.php");
+$auth = new UserController;
 
 if(isset($_GET['logout']))
 {

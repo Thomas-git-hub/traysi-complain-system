@@ -17,9 +17,9 @@
   <?php 
   include_once("includes/navbar.php");
 
-  include("president/includes/app.php");
-  include("president/includes/auth.php");
-  $auth->isLoggedIn(); 
+  include("includes/app.php");
+  include("includes/auth.php");
+
   ?>
 
  <div class="container">

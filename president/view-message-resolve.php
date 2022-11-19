@@ -26,7 +26,8 @@ require("includes/auth.php");
 require("includes/Controller/ComplainController.php");
 
 // Validation if user is not Logged In
-require_once("includes/Controller/AuthenticationController.php");
+// require_once("includes/Controller/AuthenticationController.php");
+include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
 $authenticated = new AuthenticationController;
 
 ?>

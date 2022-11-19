@@ -23,7 +23,8 @@ require("includes/auth.php");
 require("includes/Controller/ComplainController.php");
 
 // Validation if user is not Logged In
-require_once("includes/Controller/AuthenticationController.php");
+// require_once("includes/Controller/AuthenticationController.php");
+include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
 $authenticated = new AuthenticationController;
     
 $data = $authenticated->authDetails();
@@ -65,14 +66,18 @@ $data = $authenticated->authDetails();
                     <td><?= $row['fullname'] ?></td>
                     <td><?= $row['plate_no'] ?></td>
                     <td>
-                      <button class="btn btn-upd">
-                        <i class="bi bi-dash-circle-fill"></i>
-                      </button>
+                      <a href="#" onclick="return confirm('Are you sure you want to delete this item?'); "> 
+                      <form action="includes/driver_conn.php" method="post">
+                        <input type="hidden" name="id" value="<?= $row['id'] ?>" >
+                        <button class="btn btn-upd" name="clear">
+                          <i class="bi bi-dash-circle-fill"> </i>
+                        </button>
+                      </form>
+                    </a>
                     </td>
                 </tr>
                 <?php
                   }
-
                 }
                 else
                 {
@@ -102,7 +107,7 @@ $data = $authenticated->authDetails();
 <script>
   $(document).ready(function () {
         $('#datatable').DataTable();
-    });
+    }); 
 </script>
 
 </body>

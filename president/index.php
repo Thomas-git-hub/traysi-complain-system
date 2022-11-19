@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +18,15 @@
 <body>
   <?php
    require("includes/sidenav.php");
-    
+   require("includes/auth.php");
+   
     // Validation if user is not Logged In
-    require_once("includes/Controller/AuthenticationController.php");
+    include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
+    include dirname(__FILE__).'/../includes/auth.php';
     $authenticated = new AuthenticationController;
+    $data = $authenticated->authDetails();
+    $authenticated->president();
+  
    ?>
 
   <div class="row-header d-flex flex-row">
@@ -36,8 +42,8 @@
       <h1 class="header-title-1">Traysi</h1>
       <h1 class="header-title-2">Complain & Report</h1>
       <h1 class="header-title-3">Management System</h1>
-      <?php $data = $authenticated->authDetails(); ?>
-      <h1 class="header-title-4"><i class="bi bi-emoji-laughing-fill">&nbsp;</i>Hello, Welcome <?= $data['fullname'] ?> </h1>
+     
+      <h1 class="header-title-4"><i class="bi bi-emoji-laughing-fill">&nbsp;</i>Hello, Welcome <?= $data['fullname']?> </h1>
     </div>
 </div>
 
