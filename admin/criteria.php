@@ -39,7 +39,7 @@
                     <td>Wreckless Driving</td>
                     <td>1st Offense</td>
                     <td>
-                      <button class="btn btn-upd" data-toggle="modal" data-target="#updCriteria">
+                      <button class="btn btn-upd" data-toggle="modal" data-target="#hello">
                         <i class="bi bi-arrow-repeat"></i>
                       </button>
                       <button class="btn btn-upd">
@@ -59,7 +59,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">Update &nbsp;&nbsp; C r i t e r i a</h5>
+        <h5 class="modal-header-title" id="exampleModalLabel">A d d &nbsp;&nbsp; C r i t e r i a</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
@@ -84,17 +84,18 @@
           <div class="modal-footer d-flex justify-content-center">
             <button type="submit" class="modal-btn-upd">Update</button>
           </div>
+        </div>
       </form>
     </div>
   </div>
 </div>
 
-<!-- UPDATE Criteria -->
-<div class="modal fade" id="updCriteria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Update Criteria -->
+<div class="modal fade" id="hello" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">A d d &nbsp;&nbsp; C r i t e r i a</h5>
+        <h5 class="modal-header-title" id="exampleModalLabel">U p d a t e&nbsp;&nbsp; C r i t e r i a</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
@@ -103,7 +104,8 @@
         <div class="modal-body">
           <div class="form-group mt-3">
             <i class="bi bi-card-text mx-2 mb-1"></i>
-            <textarea class="form-control" id="" rows="3" placeholder="Enter Criteria"></textarea>
+            <textarea class="form-control" id="" rows="3" placeholder="Update Criteria"></textarea>
+            <!--MUST SHOW EXISTING CRITERIA -->
           </div>
           <div class="form-group mt-3">
             <i class="bi bi-pin-map mx-2 mb-1"></i>
@@ -118,6 +120,7 @@
           <div class="modal-footer d-flex justify-content-center">
             <button type="submit" class="modal-btn-upd">Update</button>
           </div>
+        </div>
       </form>
     </div>
   </div>

@@ -19,17 +19,7 @@
 </head>
 <body>
 
-<?php 
-include_once("includes/sidenav.php");
-
-require("includes/auth.php");
-require("includes/Controller/ComplainController.php");
-
-// Validation if user is not Logged In
-require_once("includes/Controller/AuthenticationController.php");
-$authenticated = new AuthenticationController;
-    
-?>
+<?php include_once("includes/sidenav.php") ?>
 
 <div class="container">
   <div class="d-flex justify-content-center">
@@ -38,31 +28,21 @@ $authenticated = new AuthenticationController;
         <div class="d-flex justify-content-start flex-row">
           <a href="inbox-complain.php"><i class="bi bi-arrow-left"></i></a>
         </div>
-        <?php
-        if(isset($_GET['id']))
-        {
-          $complain_id = validateInput($db->conn, $_GET['id']);
-          $complain = new ComplainController;
-          $result = $complain->view($complain_id);
-
-          if($result)
-          {
-            ?>
         <div class="d-flex justify-content-start mt-3">
           <h1 class="title-message">Message</h1>&nbsp;
         </div>
         <div class="d-flex justify-content-end flex-row">
-          <h1 class="message-date-time"><?=$result['time']?></h1>&nbsp;
-          <h1 class="message-date-time"><?=$result['date']?></h1>
+          <h1 class="message-date-time">6:30pm</h1>&nbsp;
+          <h1 class="message-date-time">11/01/2022</h1>
         </div>
         <div class="d-flex justify-content-center">
           <div class="card inner-card" style="width: 43rem;">
             <div class="card-body">
-              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small><?=$result['fullname']?></small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small><?=$result['email']?></small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small><?=$result['contact_no']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small>Peter Griffin</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small>petergriffin@gmail.com</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small>09156748575</small></h1>
               <h1 class="h1-view-mes-con mt-5"><i class="bi bi-chat-left-text-fill">&nbsp;</i></h1>
-              <h1 class="h1-view-mes-con"><small style="font-weight: normal;"><?=$result['others']?></small></h1>
+              <h1 class="h1-view-mes-con"><small style="font-weight: normal;">This is a sample message</small></h1>
             </div>
           </div>
         </div>
@@ -70,30 +50,24 @@ $authenticated = new AuthenticationController;
       <div class="row">
         <h1 class="attached-image-title">Attachment</h1>
         <h1 class="attached-image-title">No Attachment</h1>
-        
-        <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
-      </div>
-      <div class="row">
-        <div class="d-flex flex-row">
-          <button class="btn btn-respond" data-toggle="modal" data-target="#sendMessage"><i class="bi bi-send-fill">&nbsp;</i>Send Message</button>
-          <button class="btn btn-respond"><i class="bi bi-check-circle-fill">&nbsp;</i>Process</button>
-          <!-- NOTE! when process button is clicked, the page will be redirected to processing page (processing.php) -->
-          <!-- and data from the table will be passed to Report History Resolve (resolved.php) -->
-        </div>
+    <!-- NOTE: "No attachement" will show if passenger does not have uploaded image -->
+
+        <!-- <img src="assets/svg/subway.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
+    <!-- NOTE: we are going to use this img tag above if user/passenger sends or uploaded image (UNCOMMENT TO VIEW) -->
       </div>
     </div>
-
   </div>
 </div>
 
+
 <!-- modal -->
 
-<!-- View Message -->
+<!-- Update Criteria -->
 <div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header d-flex justify-content-center">
-        <h5 class="modal-header-title" id="exampleModalLabel">S e n d&nbsp;&nbsp; M e s s a g e </h5>
+        <h5 class="modal-header-title" id="exampleModalLabel">U p d a t e &nbsp;&nbsp; C r i t e r i a</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
@@ -101,7 +75,7 @@ $authenticated = new AuthenticationController;
       <form action=""  method="post" id="profFrm" onsubmit="">
         <div class="modal-body">
           <div class="form-group mt-3">
-            <h1 class="h1-view-mes-con">To:&nbsp;&nbsp;<small style="font-weight: normal; font-style: italic;"><?=$result['fullname']?></small></h1>
+            <h1 class="h1-view-mes-con">To:&nbsp;&nbsp;<small style="font-weight: normal; font-style: italic;">petergriffin@gmail.com</small></h1>
             <!-- <input type="email" class="form-control" id="" aria-describedby="" placeholder=""> -->
           </div>
           <div class="form-group mt-3">
@@ -116,19 +90,6 @@ $authenticated = new AuthenticationController;
     </div>
   </div>
 </div>
-<?php
-      }
-      else
-
-      {
-        echo "<h6 class='alert alert-danger'> No Record Found</h6>";
-      }
-    }
-    else
-    {
-      echo "<h6 class='alert alert-danger'> Something went wrong</h6>";
-    }
-?>
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.min.js"></script>

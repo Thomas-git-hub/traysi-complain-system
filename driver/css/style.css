@@ -2,13 +2,26 @@ body{
   background-color: #f6f8fc;
 }
 
+.a-logout{
+  float: right;
+  margin-top: 10px;
+  font-size: 10pt;
+  text-decoration: none;
+}
+
+.a-logout:hover{
+  color: #ff0000;
+  font-weight: bold;
+}
+
 .row-welcome{
+  margin-top: 20px;
   background-color: #3198f5;
   padding: 15px;
 }
 
 .h1-welcome{
-  color: #f0ff00;
+  color: #fff;
   font-weight: 900;
   margin-left: 20px;
 }

@@ -65,7 +65,7 @@ $data = $authenticated->authDetails();
                     <td><?= $row['fullname'] ?></td>
                     <td><?= $row['plate_no'] ?></td>
                     <td>
-                      <button class="btn btn-upd">
+                      <button class="btn btn-upd" data-toggle="tooltip" data-placement="bottom" title="Click to Clear Offense">
                         <i class="bi bi-dash-circle-fill"></i>
                       </button>
                     </td>

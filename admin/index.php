@@ -33,8 +33,8 @@
   <a class="a-mid-nav" href="criteria.php">Criteria</a>
   <a class="a-mid-nav" href="toda.php">Toda</a>
   <a class="a-mid-nav" href="president.php">President</a>
-  <a class="a-mid-nav" href="#">Driver</a>
-  <a class="a-mid-nav" href="#">Notification</a>
+  <a class="a-mid-nav" href="driver.php">Driver</a>
+  <a class="a-mid-nav" href="inbox-complain.php">Notification</a>
 </div>
 
 

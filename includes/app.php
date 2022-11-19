@@ -25,5 +25,3 @@ function redirect($message, $page)
 
 }
 
-
-

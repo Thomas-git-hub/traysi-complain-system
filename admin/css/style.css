@@ -214,6 +214,66 @@ tbody tr:hover{
   border: none;
 }
 
+.bi-arrow-left{
+  font-size: 28px;
+}
+
+.title-message{
+  color: #3198f5;
+  font-weight: 900;
+  font-size: 12pt;
+}
+
+.h1-inbox-title{
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 14pt;
+  color: #3198f5;
+  font-weight: bold;
+}
+
+.card-view-message{
+  margin-top: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border: none;
+  width: 48rem;
+}
+
+.message-date-time{
+  font-size: 9pt;
+  color: #9b9b9b;
+}
+
+.h1-view-mes-con{
+  margin-top: 2%;
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+.form-control{
+  border-radius: 20px;
+  border: 1px solid #3198f5;
+}
+
+.inner-card{
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #f6f8fc;
+  border: none;
+}
+
+.attached-image-title{
+  font-size: 10pt;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.view-message-image {
+  width: 100%;
+  height: auto;
+}
+
 @media only screen and (max-width: 600px) {
   .a-mid-nav{
     margin-top: 15px;

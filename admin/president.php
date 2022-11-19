@@ -99,12 +99,13 @@
                         <option value="<?php echo $category["id"];?>">
                             <?php echo $category["toda_name"];?>
                         </option>
-            <?php
-                    endwhile;
-            ?>
-            ?>
+              <?php
+                      endwhile;
+              ?>
+              <!-- ?> di ko sure if need to na ending ng php, kaya hinide ko lang muna sya, parang wala kasi syang partner-->
+            </select>
           </div>
-          <div class="form-group mt-3" style="margin-top: 50px;">
+          <div class="form-group mt-3">
             <i class="bi bi-person-circle mx-2 mb-1"></i>
             <input type="text" name="pressName" class="form-control" id="" placeholder="Full Name" required>
           </div>

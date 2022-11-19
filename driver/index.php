@@ -26,6 +26,13 @@
 
     $authenticated = new AuthenticationController;
    ?>
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <a class="a-logout" href=""><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
+    </div>
+  </div>
+</div>
 
 <div class="container-fluid row-welcome">
     <h1 class="h1-welcome">Complaint & Report Management System</h1>

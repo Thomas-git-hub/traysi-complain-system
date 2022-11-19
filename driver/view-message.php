@@ -48,14 +48,9 @@
       <div class="row">
         <h1 class="attached-image-title">Attachment</h1>
         <h1 class="attached-image-title">No Attachment</h1>
+    <!-- NOTE: "No attachement" will show if passenger does not have uploaded image -->
         <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
-      </div>
-      <div class="row">
-        <div class="d-flex flex-row">
-          <button class="btn btn-respond" data-toggle="modal" data-target="#sendMessage"><i class="bi bi-send-fill">&nbsp;</i>Send Message</button>
-          <button class="btn btn-respond"><i class="bi bi-check-circle-fill">&nbsp;</i>Process</button>
-          <!-- NOTE! when process button is clicked, the page will be redirected to processing page (processing.php) -->
-        </div>
+    <!-- NOTE: we are going to use this img tag if user/passenger sends or uploaded image (UNCOMMENT TO VIEW) -->
       </div>
     </div>
   </div>

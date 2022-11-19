@@ -53,7 +53,7 @@ $data = $authenticated->authDetails();
                 ?>
                 <tr> 
                     <td><?= $row['fullname'] ?></td>
-                    <td><a href="view-message.php?id=<?= $row['id'] ?>"><?= $row['others'] ?></a></td>
+                    <td><a href="processing-view-message.php?id=<?= $row['id'] ?>"><?= $row['others'] ?></a></td>
                     <td><?= $row['date'] ?></td>
                     <td><?= $row['status'] ?></td>
                 </tr>

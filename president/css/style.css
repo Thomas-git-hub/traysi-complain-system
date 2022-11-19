@@ -183,6 +183,16 @@ tbody tr:hover{
   color: #9b0000;
 }
 
+.btn-resolve{
+  color: #32cd32;
+  font-size: 14pt;
+  border: none;
+}
+
+.btn-resolve:hover{
+  color: #118a11;
+}
+
 .modal-header{
   background-color: #3198f5;
   border: none;

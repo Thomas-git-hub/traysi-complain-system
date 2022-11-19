@@ -17,7 +17,7 @@
   <title>Document</title>
   
 </head>
-<body>
+<body class="body-login">
 <?php 
 include("includes/navbar.php");
 include("president/includes/app.php");

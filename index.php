@@ -13,7 +13,7 @@
 
   <title>Landing Page</title>
 </head>
-<body>
+<body class="body-index">
   <?php 
   include_once("includes/navbar.php");
 
@@ -25,7 +25,7 @@
  <div class="container">
     <div class="row row-system-title">
       <div class="col d-flex justify-content-center">
-        <img class="cs-logo" src="assets/png/cs-logo.png" alt="tcs-logo">
+        <img class="cs-logo" src="assets/png/cs-logo-road.png" alt="tcs-logo">
       </div>
       <div class="col d-flex flex-column col-system-title">
         <h1 class="system-title-1">T R A Y S I</h1>
@@ -113,15 +113,74 @@
 
 <div class="container con-bot-con">
   <div class="row">
-    <h5 class="d-flex justify-content-center">About Us</h5>
-    <div class="col">
-      <h1>hellow ph</h1>
+      <div class="col-mid-con">
+        <h1 class="h1-mid-con-title" style="font-size: 16pt; color: #3198f5; font-weight: 900; margin-bottom: 30px;">MAGNA CARTA FOR TRICYCLE DRIVERS AND OPERATORS ACT</h1>
     </div>
     <div class="col">
-      <h1>hello ph</h1>
-    </div>
-    <div class="col">
-      <h1>hello ph</h1>
+      <p>
+        <b>Sec. 4.</b>
+        &nbsp;Requirements fo r Operation o f
+        Tricycle. - Tricycles shall only be operated
+        in accordance with the following
+        requirements: a) Subject to the road
+        worthiness guidelines and compliance with
+        environmental laws prescribed by the
+        Department of Transportation (DOTr) thru
+        the Land Transportation Office (LTO), the
+        cities and municipalities shall continue to
+        exercise the power to regulate the
+        operation of tricycles and grant permits for
+        the operation thereof within their
+        territorial jurisdiction. b) For safety
+        reasons, no tricycle shall operate on
+        national highways where the maximum
+        speed limit exceeds forty (40) kiiometers
+        per hour. However, the concerned
+        Sanggunian may provide exceptions if
+        there are no available public transportation
+        services or modes servicing the route.
+      </p>
+      <p>
+      &nbsp;&nbsp;&nbsp;Operators shall employ only drivers possessing
+        professional licenses duly issued by the LTO. For this
+        purpose, the LTO shall issue guidelines, including
+        theoretical and practical examinations, appropriate for
+        drivers of tricycles. d) The LTO is mandated to formulate
+        and issue safety standards and the allowable designs and
+        modifications, taking into consideration the needs of the
+        vulnerable groups, and determine the limitations on
+        passengers and weight capacity. c Cities and Municipalities
+        may adopt a color coding scheme for tricycle operating in
+        their jurisdiction. They may assign an identification number
+        assigned from the license plate number issued by the LTO.
+        f) MTOP issued shall be valid for three (3) years, renewable
+        for the same period
+      </p>
+      <p>
+      &nbsp;&nbsp;&nbsp;Change of ownership of unit or transfer of
+      the MTOP shall be considered as an
+      amendment to an MTOP and shall require
+      approval of the local government unit (LGU)
+      which issued the same. Cities and
+      Municipalities shall impose no other
+      requirement or condition for 27 tricycle
+      operation except those provided in this Act.
+      Sec. 7. Rights o f Members o f the Tricycle
+      Sector. - Members of the Tricycle 11 Sector
+      shall have and enjoy the following rights: 12
+      a) Seif-organization to collectively negotiate
+      with government and other 13 entities in the
+      promotion of their welfare and
+      advancement of their interests 14 free from
+      any politicai interference or favor; 15 b)
+      Informed participation in policy making
+      processes relevant to the concerns 16 of
+      their sector through their legitimate
+      organizations; 17 c) Safe working conditions
+      and access to medicai care services; 18 d)
+      Freedom from discrimination, violence,
+      exploitation, or harassment;
+      </p>
     </div>
   </div>
 </div>

@@ -34,7 +34,7 @@
             <tbody>
                 <tr> 
                     <td>Peter Griffin</td>
-                    <td>I hate the driver</td>
+                    <td><a href="view-complain.php">I hate the driver</a></td>
                     <td>11/04/2022</td>
                     <td>11:52pm</td>
                 </tr>
