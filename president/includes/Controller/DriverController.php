@@ -28,14 +28,12 @@ class DriverController{
         }
     }
 
-    public function check($d_name, $d_plate_no)
-    {
-        $d_name = validateInput($this->conn, $fullname);
-        $d_plate_no = validateInput($this->conn, $plate_no);
-
-        $driverQuery = "SELECT * FROM driver WHERE fullname = '$d_name' AND plate_no = '$d_plate_no'";
-        $result = $this->conn->query($driverQuery);
-        if($result){
+    public function isDriverExists ($plate_no, $contact_no){
+        $checkUser = "SELECT * FROM driver
+                      WHERE plate_no = '$plate_no' OR contact_no = '$contact_no'
+                      LIMIT 1";
+         $result = $this->conn->query($checkUser);
+         if($result->num_rows > 0 ){
             return true;
         }
         else{

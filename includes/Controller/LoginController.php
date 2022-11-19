@@ -14,6 +14,7 @@ class LoginController
                         WHERE 1=1
                          AND fullname = '$fullname '
                          AND code = '$code'
+                         AND usertype = 2
                          AND status = 'Active'
                          LIMIT 1";
         $result = $this->conn->query($checkLogin);
@@ -34,6 +35,7 @@ class LoginController
                         WHERE 1=1
                          AND fullname = '$fullname '
                          AND code = '$code'
+                         AND usertype = 1
                          AND status = 'Active'
                          LIMIT 1";
         $result = $this->conn->query($checkAdminLogin);
@@ -53,6 +55,7 @@ class LoginController
                             WHERE 1=1
                             AND fullname = '$fullname'
                             AND contact_no = '$contact_no'
+                            AND usertype = 3
                             LIMIT 1";
         $result = $this->conn->query($checkUserLogin);
         if($result->num_rows > 0){
@@ -69,30 +72,20 @@ class LoginController
     private function userAuthentication($data)
     {
         $_SESSION['authenticated'] = true;
-        // $_SESSION['auth_role'] = $data['']
+        $_SESSION['auth_role'] = $data['usertype'];
         $_SESSION['auth_user'] = [
             'id' =>$data['id'],
             'fullname' =>$data['fullname'],
             'email' =>$data['email'],
             'contact_no' =>$data['contact_no'],
             'toda_id' =>$data['toda_id'],
+            'usertype' =>$data['usertype'],   
         ];
-    
-    }
-
-    public function isLoggedIn()
-    {
-        if(isset($_SESSION['authenticated']) === TRUE){
-            redirect('You are already logged in', 'president/index.php');
-        }
-        else{
-            return false;
-        }
     }
     
     public function isLoggedOut()
     {
-        if(isset($_SESSION['authenticated']) === TRUE)
+        if(!isset($_SESSION['authenticated']))
         {
         unset( $_SESSION['authenticated']);
         unset( $_SESSION['auth_user']);
@@ -101,6 +94,7 @@ class LoginController
         else{
             return false;
         }
-    }
+    }   
+
 }
 ?>

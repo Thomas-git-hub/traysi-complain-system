@@ -18,13 +18,13 @@
 <?php
    require("includes/sidenav.php");
    
-    
     // Validation if user is not Logged In
-    // require_once("includes/Controller/AuthenticationController.php");
     include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
+    include dirname(__FILE__).'/../includes/auth.php';
     $authenticated = new AuthenticationController;
-
-   ?>
+    $data = $authenticated->authDetails();
+    $authenticated->admin();
+    ?>
 
 <div class="row-header d-flex flex-row">
     <div class="col col-img d-flex justify-content-center">

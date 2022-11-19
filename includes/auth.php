@@ -16,9 +16,8 @@ if(isset($_POST['login_pres']))
 {
     $fullname = validateInput($db->conn,$_POST['fullname']);
     $code = validateInput($db->conn,$_POST['code']);
-
-   
-    $checkLogin = $auth->login($fullname, $code);
+    
+    $checkLogin = $auth->login( $fullname, $code);
     if($checkLogin){
         redirect("", "president/index.php");
     }
@@ -33,7 +32,6 @@ if(isset($_POST['login_admin']))
 {
     $fullname = validateInput($db->conn,$_POST['fullname']);
     $code = validateInput($db->conn,$_POST['code']);
-
    
     $checkAdminLogin = $auth->Adminlogin($fullname, $code);
     if($checkAdminLogin){
@@ -50,7 +48,6 @@ if(isset($_POST['login_user']))
 {
     $fullname = validateInput($db->conn,$_POST['fullname']);
     $contact_no = validateInput($db->conn,$_POST['contact_no']);
-
    
     $checkUserLogin = $auth->Userlogin($fullname,$contact_no);
     if($checkUserLogin){
@@ -63,4 +60,5 @@ if(isset($_POST['login_user']))
         
     }
 }
+
 ?>

@@ -30,9 +30,14 @@ $authenticated = new AuthenticationController;
 $data = $authenticated->authDetails();
 ?>
 
+
+
 <div class="container">
   <h1 class="page-title"><i class="bi bi-exclamation-triangle-fill"></i>&nbsp;</i>R e p o r t &nbsp;&nbsp;H i s t o r y &nbsp;&nbsp;P r o c e s s i n g</h1>
 
+   <!----- Validation Design Here Please---->
+ <?php include_once("includes/message.php") ?>
+<!------------------------------------------>
     <div class="row table mt-5">
       <table id="datatable" class="table inner-table display">
             <thead class="thead-dark">

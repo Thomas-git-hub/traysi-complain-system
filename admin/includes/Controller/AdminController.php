@@ -11,11 +11,12 @@ class AdminController
     private function userAuthentication($data)
     {
         $_SESSION['authenticated'] = true;
-        // $_SESSION['auth_role'] = $data['']
+        $_SESSION['auth_role'] = $data['usertype'];
         $_SESSION['auth_user'] = [
             'id' =>$data['id'],
-            'username' =>$data['username'],
-            'adminCode' =>$data['admincode'],
+            'username' =>$data['fullname'],
+            'adminCode' =>$data['code'],
+            'usertype' =>$data['usertype'], 
         ];
     
     }

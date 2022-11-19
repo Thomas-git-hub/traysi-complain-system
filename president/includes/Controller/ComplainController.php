@@ -59,6 +59,7 @@ class ComplainController{
                                 ,a.others
                                 ,date_format(a.created_at, '%m-%d-%Y') as `date`
                                 ,date_format(a.created_at, '%h:%i %p') as `time`
+                                ,a.`status`
                         FROM complain_tbl as a
                         LEFT JOIN toda_tbl as b 
                         ON b.id = a.toda_id
@@ -70,7 +71,9 @@ class ComplainController{
                         ON a.user_id = e.id
                         LEFT JOIN offense_tbl as f
                         ON a.offense_id = f.id
-                        WHERE c.id = '$user_id'";
+                        WHERE 1=1
+                        AND c.id = '$user_id'
+                        AND a.`status` = 'R'";
         $result = $this->conn->query($ComplainQuery);
         if($result->num_rows > 0){
             return $result;
@@ -229,7 +232,23 @@ class ComplainController{
             return false;
         }
     }      
-}
 
+    public function updateToProcess($id)
+        {
+            $complain_id = validateInput($this->conn, $id);
+            $driverQuery = "UPDATE complain_tbl 
+                            SET status = 'P' 
+                            WHERE id = '$complain_id'
+                            AND status = 'R'
+                            LIMIT 1";
+            $result = $this->conn->query($driverQuery);
+            if($result){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+}
 
 ?>

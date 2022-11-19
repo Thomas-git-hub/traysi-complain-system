@@ -72,15 +72,21 @@ $data = $authenticated->authDetails()
         </div>
       </div>
       <div class="row">
-        <h1 class="attached-image-title">Attachment</h1>
+        <?php if(!isset($result['upload_image']) == true) :?>
+        <h1 class="attached-image-title"><?php $result['upload_image'] ?></h1>
+        <?php else: ?>
         <h1 class="attached-image-title">No Attachment</h1>
-        
+
+       <?php endif ; ?>
         <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
       </div>
       <div class="row">
         <div class="d-flex flex-row">
           <button class="btn btn-respond" data-toggle="modal" data-target="#sendMessage"><i class="bi bi-send-fill">&nbsp;</i>Send Message</button>
-          <button class="btn btn-respond"><i class="bi bi-check-circle-fill">&nbsp;</i>Process</button>
+          <form action="includes/driver_conn.php" method="post">
+            <input hidden name="id" value="<?= $result['id'] ?>">
+            <button type='submit' name = "process" class="btn btn-respond"><i class="bi bi-check-circle-fill">&nbsp;</i>Process</button>
+            </form>
           <!-- NOTE! when process button is clicked, the page will be redirected to processing page (processing.php) -->
         </div>
       </div>

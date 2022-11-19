@@ -98,6 +98,38 @@ class AuthenticationController
         }
     }
     
+    public function admin()
+    {
+        if($_SESSION['auth_role'] !== '1') {
+            session_start();
+            session_unset();
+            session_destroy();
+            redirect("Login to Access the page", "login.php");
+            exit();
+            }
+    }
+    
+    public function president()
+    {
+        if($_SESSION['auth_role'] !== '2') {
+            session_start();
+            session_unset();
+            session_destroy();
+            redirect("Login to Access the page", "login.php");
+            exit();
+            }
+    }
+
+    public function user()
+    {
+        if($_SESSION['auth_role'] !== '3') {
+            session_start();
+            session_unset();
+            session_destroy();
+            redirect("Login to Access the page", "login.php");
+            exit();
+            }
+    }
 }
 
 ?>

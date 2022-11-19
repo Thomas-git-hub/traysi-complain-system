@@ -18,11 +18,10 @@
 <?php
    require("includes/sidenav.php");
    
-    
     // Validation if user is not Logged In
-    // require_once("includes/Controller/AuthenticationController.php");
     include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
     $authenticated = new AuthenticationController;
+    $authenticated->user();
    ?>
 
 <div class="row">
