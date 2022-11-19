@@ -23,7 +23,9 @@ require("includes/auth.php");
 require("includes/Controller/DriverController.php");
 
     // Validation if user is not Logged In
-    require_once("includes/Controller/AuthenticationController.php");
+    
+    // require_once("includes/Controller/AuthenticationController.php");
+    include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
     $authenticated = new AuthenticationController;
     $data = $authenticated->authDetails();
 ?>
@@ -67,8 +69,12 @@ require("includes/Controller/DriverController.php");
                     <td><?= $row['email'] ?></td>
                     <td><?= $row['status'] ?></td>
                     <td>
-                      <button class="btn-enable px-3 py-1">Enabled</button>
-                      <button class="btn-disable px-3 py-1">Disabled</button>
+                      <form action="includes/driver_conn.php" method="post">
+                      <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                      <button  type='submit' name = "active" class="btn-enable px-3 py-1">Enabled</button>
+                      <button type='submit' name = "inactive" class="btn-disable px-3 py-1">Disabled</button>
+                      </form>
+                      
                     </td>
                 </tr>
                     <?php

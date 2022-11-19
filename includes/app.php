@@ -4,7 +4,7 @@ include_once("db_conn.php");
 $db = new db_conn;
 
 // include dirname(__FILE__).'/../../includes/app.php';
-define('SITE_URL',' http://localhost/traysi-complain-system/');
+define('SITE_URL',' http://localhost/cs/traysi-complain-system/');
 
 function root_url($slug)
 {

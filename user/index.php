@@ -15,7 +15,14 @@
   <title>Report</title>
 </head>
 <body>
-  <?php include_once("includes/sidenav.php") ?>
+<?php
+   require("includes/sidenav.php");
+   
+    // Validation if user is not Logged In
+    include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
+    $authenticated = new AuthenticationController;
+    $authenticated->user();
+   ?>
 
 <div class="row">
   <div class="d-flex justify-content-end"></div>
@@ -74,7 +81,8 @@
     <div class="col">
       <div class="card card-2">
         <div class="card-body">
-          <h5 class="card-title card-2-title"><i class="bi bi-person-circle">&nbsp;</i>Welcome User!</h5>
+        <?php $data = $authenticated->authUserDetails() ?>
+          <h5 class="card-title card-2-title"><i class="bi bi-person-circle">&nbsp;</i>Welcome <?= $data['fullname'] ?>!</h5>
           <h6 class="card-subtitle mt-2 mb-3">We're here to help you with your recent tricycle experience.</h6>
           <h1 class="d-flex justify-content-center card-heart-icon" style="color: #fff;"><i class="bi bi-chat-heart-fill"></i></h1>
           <p class="card-text">We, the Polangui League of Tricycle Associations, care and value your safety.</p>

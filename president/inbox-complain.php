@@ -23,7 +23,8 @@ require("includes/auth.php");
 require("includes/Controller/ComplainController.php");
 
 // Validation if user is not Logged In
-require_once("includes/Controller/AuthenticationController.php");
+// require_once("includes/Controller/AuthenticationController.php");
+include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
 $authenticated = new AuthenticationController;
     
 $data = $authenticated->authDetails();
@@ -32,10 +33,9 @@ $data = $authenticated->authDetails();
 <div class="container">
   <h1 class="page-title"><i class="bi bi-envelope-paper-fill">&nbsp;</i>V i e w &nbsp;&nbsp; C o m p l a i n</h1>
 
-    <!----- Validation Design Here Please---->
-    <?php include_once("includes/message.php") ?>
-    <!------------------------------------------>
-
+           <!----- Validation Design Here Please---->
+           <?php include_once("includes/message.php") ?>
+            <!------------------------------------------>
     <div class="row table mt-5">
       <table id="datatable" class="table inner-table display">
             <thead class="thead-dark">
