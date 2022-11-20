@@ -52,7 +52,7 @@ $auth->isLoggedIn();
         <input hidden class="form-control" id="adminFullname" name="usertype" value= "1" aria-describedby="">
       </div>
       <div class="form-group mt-3">
-        <input type="text" class="form-control" id="adminCode" name="code" placeholder="Code">
+        <input type="password" class="form-control" id="adminCode" name="code" placeholder="Code">
       </div>
       <button type="submit" id="btn" name= "login_admin" class="btn mt-3">Login</button>
       </form>
@@ -93,15 +93,15 @@ $auth->isLoggedIn();
       <!-- driver form -->
     
       <div id="driverLogin">
-      <form id="theform" action="driver/includes/auth.php" method="POST" >
+      <form id="theform" action="includes/auth.php" method="POST" >
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="driverFullname" name="fullname" aria-describedby="" placeholder="Driver Full Name">
-        <input hidden class="form-control" id="driverFullname" name="usertype" value="4" aria-describedby="" placeholder="Driver Full Name">
+        <input hidden class="form-control" id="driverFullname" name="usertype" value="4" aria-describedby="" >
       </div>
       <div class="form-group mt-3">
         <input type="text" class="form-control" id="driverContactfield" name="contact_no" placeholder="Contact (09)" onkeyup=" return validatephone(this.value); ">
       </div>
-      <button type="submit" id="btn" name= "login" class="btn mt-3">Login</button>
+      <button type="submit" id="btn" name= "login_driver" class="btn mt-3">Login</button>
       </form>
       </div>
       <!-- end driver form -->

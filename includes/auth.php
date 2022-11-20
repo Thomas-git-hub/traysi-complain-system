@@ -60,5 +60,21 @@ if(isset($_POST['login_user']))
         
     }
 }
+if(isset($_POST['login_driver']))
+{
+    $fullname = validateInput($db->conn,$_POST['fullname']);
+    $contact_no = validateInput($db->conn,$_POST['contact_no']);
+   
+    $checkDriverLogin = $auth->Driverlogin($fullname,$contact_no);
+    if($checkDriverLogin){
+        redirect("", "driver/index.php");
+    }
+    else
+    {
+        redirect("Invalid Credentials", "login.php");
+        exit();
+        
+    }
+}
 
 ?>

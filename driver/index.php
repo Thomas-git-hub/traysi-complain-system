@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,7 +19,7 @@ s<!DOCTYPE html>
 </head>
 <body>
 <?php
-
+    include_once("includes/auth.php");
     // Validation if user is not Logged In
     include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
     $authenticated = new AuthenticationController;
@@ -31,7 +31,7 @@ s<!DOCTYPE html>
 <div class="container">
   <div class="row">
     <div class="col">
-        <a class="a-logout" href=""><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
+        <a class="a-logout" href="?logout=true"><i class="bi bi-box-arrow-right">&nbsp;</i>Logout</a>
     </div>
   </div>
 </div>
@@ -61,7 +61,7 @@ s<!DOCTYPE html>
                 <tr> 
                     <td>John Doe</td>
                     <td>Foul Word</td>
-                    <td class="data-hidden">sample messgae</td>
+                    <td class="data-hidden">sample message</td>
                     <td><a href="view-message.php"><i class="bi bi-eye-fill"></i></a></td>
                     <td>11/11/2022</td>
                 </tr>
