@@ -19,6 +19,7 @@
 
   include("includes/app.php");
   include("includes/auth.php");
+  $auth->isLoggedIn();
 
   ?>
 

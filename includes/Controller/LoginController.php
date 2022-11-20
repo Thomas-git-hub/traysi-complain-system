@@ -69,6 +69,26 @@ class LoginController
         }
     }
 
+    public function Driverlogin($fullname,$contact_no)
+    {
+        $checkDriverLogin = "SELECT * FROM driver
+                        WHERE 1=1
+                         AND fullname = '$fullname '
+                         AND contact_no = '$contact_no'
+                         AND usertype = 4
+                         LIMIT 1";
+        $result = $this->conn->query($checkDriverLogin);
+        if($result->num_rows > 0){
+            $data = $result->fetch_assoc();
+            $this->userAuthentication($data);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     private function userAuthentication($data)
     {
         $_SESSION['authenticated'] = true;
@@ -82,6 +102,34 @@ class LoginController
             'usertype' =>$data['usertype'],   
         ];
     }
+
+
+    public function isloggedIn()
+    {
+
+        if(isset($_SESSION['authenticated']) === TRUE){
+            if($_SESSION['auth_role']=='1'){
+                header('location: ./admin/');
+           }else if($_SESSION['auth_role']=='2'){
+               header('location: ./president/');
+               
+           }else if($_SESSION['auth_role']=='3'){
+               header('location: ./user/');
+               
+           }
+           else if($_SESSION['auth_role']=='4'){
+            header('location: ./driver/');
+          }
+           else{
+            // temp
+            header('location:./');
+        }
+        }
+        else{
+            return false;
+        }
+    }
+
     
     public function isLoggedOut()
     {

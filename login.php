@@ -22,7 +22,7 @@
 include("includes/navbar.php");
 include("includes/app.php");
 include("includes/auth.php");
-
+$auth->isLoggedIn();
 ?>
 
 <div class="container con-login">

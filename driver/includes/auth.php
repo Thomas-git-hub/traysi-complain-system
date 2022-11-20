@@ -1,7 +1,7 @@
 <?php
 include_once("app.php");
-include_once("Controller/LoginController.php");
-$auth = new LoginController;
+include_once("Controller/Driver_Controller.php");
+$auth = new Driver_Controller;
 
 if(isset($_GET['logout']))
 {
@@ -11,21 +11,4 @@ if(isset($_GET['logout']))
     }
 }
 
-if(isset($_POST['login']))
-{
-    $fullname = validateInput($db->conn,$_POST['fullname']);
-    $contact_no = validateInput($db->conn,$_POST['contact_no']);
-
-   
-    $checkLogin = $auth->login($fullname, $contact_no);
-    if($checkLogin){
-        redirect("", "driver/index.php");
-    }
-    else
-    {
-        redirect("Invalid Credentials", "login.php");
-        exit();
-        
-    }
-}
 ?>

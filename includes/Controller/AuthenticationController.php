@@ -98,6 +98,31 @@ class AuthenticationController
         }
     }
     
+    public function authDriverDetails()
+    {
+        $checkAuth = $this->checkIsLoggedIn();
+        if($checkAuth){
+            $driver_id = $_SESSION['auth_user']['id'];
+
+            $getDriver= "SELECT * FROM driver WHERE id = '$driver_id'";
+
+            $result = $this->conn->query($getDriver);
+            if($result->num_rows  > 0){
+
+                $data = $result->fetch_assoc();
+                return $data;
+            }
+            else
+            {
+                redirect ("Login to Access the page", "login.php");
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     public function admin()
     {
         if($_SESSION['auth_role'] !== '1') {
@@ -123,6 +148,16 @@ class AuthenticationController
     public function user()
     {
         if($_SESSION['auth_role'] !== '3') {
+            session_start();
+            session_unset();
+            session_destroy();
+            redirect("Login to Access the page", "login.php");
+            exit();
+            }
+    }
+
+    public function driver(){
+        if($_SESSION['auth_role'] !== '4') {
             session_start();
             session_unset();
             session_destroy();

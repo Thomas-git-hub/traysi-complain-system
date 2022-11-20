@@ -66,20 +66,14 @@ $data = $authenticated->authDetails();
                     <td><?= $row['fullname'] ?></td>
                     <td><?= $row['plate_no'] ?></td>
                     <td>
-<<<<<<< HEAD
-                      <button class="btn btn-upd" data-toggle="tooltip" data-placement="bottom" title="Click to Clear Offense">
-                        <i class="bi bi-dash-circle-fill"></i>
-                      </button>
-=======
-                      <a href="#" onclick="return confirm('Are you sure you want to delete this item?'); "> 
+                      <a href="#" onclick="return confirm('Are you sure you want to delete this item?');"> 
                       <form action="includes/driver_conn.php" method="post">
                         <input type="hidden" name="id" value="<?= $row['id'] ?>" >
-                        <button class="btn btn-upd" name="clear">
-                          <i class="bi bi-dash-circle-fill"> </i>
+                        <button class="btn btn-upd" name="clear" data-toggle="tooltip" data-placement="bottom" title="Click to Clear Offense">
+                          <i class="bi bi-dash-circle-fill"></i>
                         </button>
                       </form>
                     </a>
->>>>>>> a6dade748ff66cf9d9c972e5a9c3958695fcd0f5
                     </td>
                 </tr>
                 <?php

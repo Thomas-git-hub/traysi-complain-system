@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,22 +19,15 @@
 </head>
 <body>
 <?php
-    
-   
-    
+
     // Validation if user is not Logged In
-    // require_once("includes/Controller/AuthenticationController.php");
     include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
     $authenticated = new AuthenticationController;
+   
+    $authenticated->driver();
+     $data = $authenticated->authDriverDetails();
+?>
 
-    if($_SESSION['auth_role'] !== '4') {
-      session_start();
-      session_unset();
-      session_destroy();
-      redirect("Login to Access the page", "login.php");
-      exit();
-      }
-   ?>
 <div class="container">
   <div class="row">
     <div class="col">
@@ -45,7 +38,6 @@
 
 <div class="container-fluid row-welcome">
     <h1 class="h1-welcome">Complaint & Report Management System</h1>
-    <?php $data = $authenticated->authDetails(); ?>
     <h1 class="h1-welcome-driver"><i class="bi bi-person-circle">&nbsp;</i>Welcome <?= $data['fullname'] ?>!</h1>
 </div>
 
