@@ -90,4 +90,17 @@ if(isset($_POST['process']))
 
 }
 
+if(isset($_POST['resolved']))
+{
+    $id = validateInput($db->conn,$_POST['id']);
+    $complain = new ComplainController;
+    $result = $complain->updateToResolved($id);
+    if($result){
+        redirect("Resolved Message", "president/resolved.php");
+     }else{
+         redirect("Something went wrong", "president/inbox-complain.php");
+     }
+
+}
+
 ?>

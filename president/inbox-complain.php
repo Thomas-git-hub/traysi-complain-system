@@ -66,7 +66,7 @@ $data = $authenticated->authDetails();
                 }
                 else
                 {
-                  echo "NO RECORD FOUND";
+                  echo "";
                 }
               ?>
             </tbody>

@@ -102,6 +102,27 @@ class DriverController{
         }
     }
 
+    public function ActiveDriver(){
+        $driverQuery = "SELECT COUNT(*) as activecount FROM driver WHERE status = 'Active'";
+        $active = $this->conn->query($driverQuery);
+        if($active->num_rows > 0){
+            $data = $active->fetch_assoc();
+            return $data;
+        }else{
+            return false;
+        }
+    }
+    public function InactiveDriver(){
+        $driverQuery = "SELECT COUNT(*) as inactivecount FROM driver WHERE status = 'Inactive'";
+        $inactive = $this->conn->query($driverQuery);
+        if($inactive->num_rows > 0){
+            $data = $inactive->fetch_assoc();
+            return $data;
+        }else{
+            return false;
+        }
+    }
+
 }
 
 

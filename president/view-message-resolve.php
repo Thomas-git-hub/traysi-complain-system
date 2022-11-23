@@ -69,9 +69,15 @@ $authenticated = new AuthenticationController;
         </div>
       </div>
       <div class="row">
-        <h1 class="attached-image-title">Attachment</h1>
-        <h1 class="attached-image-title">No Attachment</h1>
+      <?php if(isset($result['upload_image']) == NULL ) :?>
+          <h1 class="attached-image-title">No Attachment</h1>
+    <!-- NOTE: "No attachement" will show if passenger does not have uploaded image -->
+    <?php else: ?>
+          <h1 class="attached-image-title"><?= $result['upload_image'] ?></h1>
+          <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400">
+       <?php endif ; ?>
         <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
+    <!-- NOTE: we are going to use this img tag if user/passenger sends or uploaded image (UNCOMMENT TO VIEW) -->
       </div>
     </div>
   </div>

@@ -249,6 +249,34 @@ class ComplainController{
             }
 
         }
+
+        public function updateToResolved($id)
+        {
+            $complain_id = validateInput($this->conn, $id);
+            $driverQuery = "UPDATE complain_tbl 
+                            SET status = 'RS' 
+                            WHERE id = '$complain_id'
+                            AND status = 'P'
+                            LIMIT 1";
+            $result = $this->conn->query($driverQuery);
+            if($result){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function report_count(){
+            $user_id = $_SESSION['auth_user']['toda_id'];
+            $driverQuery = "SELECT COUNT(*) as reports FROM complain_tbl WHERE toda_id = '$user_id'";
+            $report = $this->conn->query($driverQuery);
+            if($report->num_rows > 0){
+                $data = $report->fetch_assoc();
+                return $data;
+            }else{
+                return false;
+            }
+        }
 }
 
 ?>

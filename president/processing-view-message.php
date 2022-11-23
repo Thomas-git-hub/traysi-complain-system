@@ -19,8 +19,17 @@
 </head>
 <body>
 
-<?php
+<?php 
 include_once("includes/sidenav.php");
+
+require("includes/auth.php");
+require("includes/Controller/ComplainController.php");
+
+// Validation if user is not Logged In
+// require_once("includes/Controller/AuthenticationController.php");
+include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
+$authenticated = new AuthenticationController;
+
 ?>
 
 <!-- NOTE: this is different from view-message.php file, this doesnt have action buttons like send message button -->
@@ -32,35 +41,53 @@ include_once("includes/sidenav.php");
         <div class="d-flex justify-content-start flex-row">
           <a href="processing.php"><i class="bi bi-arrow-left"></i></a>
         </div>
+
+        <?php
+        if(isset($_GET['id']))
+        {
+          $complain_id = validateInput($db->conn, $_GET['id']);
+          $complain = new ComplainController;
+          $result = $complain->view($complain_id);
+
+          if($result)
+          {
+            ?>
         <div class="d-flex justify-content-start mt-3">
           <h1 class="title-message">Message</h1>&nbsp;
         </div>
         <div class="d-flex justify-content-end flex-row">
-          <h1 class="message-date-time">6:30pm</h1>&nbsp;
-          <h1 class="message-date-time">11/01/2022</h1>
+          <h1 class="message-date-time"><?=$result['time']?></h1>&nbsp;
+          <h1 class="message-date-time"><?=$result['date']?></h1>
         </div>
         <div class="d-flex justify-content-center">
           <div class="card inner-card" style="width: 43rem;">
             <div class="card-body">
-              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small>Peter Griffin</small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small>petergriffin@gmail.com</small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small>09156748575</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small><?=$result['fullname']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small><?=$result['email']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small><?=$result['contact_no']?></small></h1>
               <h1 class="h1-view-mes-con mt-5"><i class="bi bi-chat-left-text-fill">&nbsp;</i></h1>
-              <h1 class="h1-view-mes-con"><small style="font-weight: normal;">This is a sample message</small></h1>
+              <h1 class="h1-view-mes-con"><small style="font-weight: normal;"><?=$result['others']?></small></h1>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <h1 class="attached-image-title">Attachment</h1>
-        <!-- <h1 class="attached-image-title">No Attachment</h1> -->
+      <?php if(isset($result['upload_image']) == NULL ) :?>
+          <h1 class="attached-image-title">No Attachment</h1>
     <!-- NOTE: "No attachement" will show if passenger does not have uploaded image -->
-        <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400">
+    <?php else: ?>
+          <h1 class="attached-image-title"><?= $result['upload_image'] ?></h1>
+          <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400">
+       <?php endif ; ?>
+        <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
     <!-- NOTE: we are going to use this img tag if user/passenger sends or uploaded image (UNCOMMENT TO VIEW) -->
       </div>
       <div class="row">
         <div class="d-flex flex-row">
-          <button class="btn btn-respond"><i class="bi bi-check2-all">&nbsp;</i>Complain Resolved</button>
+        <form action="includes/driver_conn.php" method="post">
+            <input hidden name="id" value="<?= $result['id'] ?>">
+            <button type='submit' name = "resolved" class="btn btn-respond"><i class="bi bi-check2-all">&nbsp;</i>Complain Resolved</button>
+          </form>
           <!-- NOTE! when process button is clicked, the page will be redirected to processing page (view-message-resolve.php) -->
           <!-- and data from the table will be passed to Report History Resolve (resolved.php) -->
         </div>
@@ -100,6 +127,19 @@ include_once("includes/sidenav.php");
     </div>
   </div>
 </div>
+<?php
+      }
+      else
+
+      {
+        echo "<h6 class='alert alert-danger'> No Record Found</h6>";
+      }
+    }
+    else
+    {
+      echo "<h6 class='alert alert-danger'> Something went wrong</h6>";
+    }
+?>
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.min.js"></script>

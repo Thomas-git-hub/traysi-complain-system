@@ -19,6 +19,12 @@
   <?php
    require("includes/sidenav.php");
    require("includes/auth.php");
+   require("includes/Controller/DriverController.php");
+   $driver = new DriverController;
+
+   require("includes/Controller/ComplainController.php");
+   $complain = new ComplainController;
+   
    
     // Validation if user is not Logged In
     include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
@@ -35,10 +41,6 @@
       </div>
     <div class="col">
 
-          <!----- Validation Design Here Please---->
-          <?php include_once("includes/message.php") ?>
-          <!------------------------------------------>
-
       <h1 class="header-title-1">Traysi</h1>
       <h1 class="header-title-2">Complain & Report</h1>
       <h1 class="header-title-3">Management System</h1>
@@ -47,7 +49,6 @@
     </div>
 </div>
 
-
 <div class="d-flex justify-content-center mt-3">
   <a class="a-mid-nav" href="driver.php">Drivers</a>
   <a class="a-mid-nav" href="violation.php"> Violation</a>
@@ -55,14 +56,14 @@
   <a class="a-mid-nav" href="#">History</a>
 </div>
 
-
 <div class="container">
   <div class="row mt-5">
       <div class="col d-flex justify-content-center">
         <div class="card card-president" style="width: 24rem;">
           <div class="card-body">
             <h1 class="h1-card-report d-flex justify-content-center">Number of Reports</h1>
-            <h1 class="h1-card-count d-flex justify-content-center">120</h1>
+            <?php $report = $complain->report_count()?>
+            <h1 class="h1-card-count d-flex justify-content-center"><?= $report['reports'] ?></h1>
           </div>
         </div>
       </div>
@@ -70,7 +71,8 @@
         <div class="card card-driver" style="width: 24rem;">
           <div class="card-body">
             <h1 class="h1-card-active d-flex justify-content-center">Total Number of Active Drivers</h1>
-            <h1 class="h1-card-count d-flex justify-content-center">120</h1>
+            <?php  $active = $driver->ActiveDriver() ?>
+            <h1 class="h1-card-count d-flex justify-content-center"><?= $active['activecount'] ?></h1>
           </div>
         </div>
       </div>
@@ -78,7 +80,8 @@
         <div class="card card-driver" style="width: 24rem;">
           <div class="card-body">
             <h1 class="h1-card-inactive d-flex justify-content-center">Total Number of Inactive Drivers</h1>
-            <h1 class="h1-card-count d-flex justify-content-center">120</h1>
+            <?php  $inactive = $driver->InactiveDriver() ?>
+            <h1 class="h1-card-count d-flex justify-content-center"><?= $inactive['inactivecount'] ?></h1>
           </div>
         </div>
       </div>

@@ -61,14 +61,14 @@ $data = $authenticated->authDetails();
                     <td><?= $row['fullname'] ?></td>
                     <td><a href="processing-view-message.php?id=<?= $row['id'] ?>"><?= $row['others'] ?></a></td>
                     <td><?= $row['date'] ?></td>
-                    <td><?= $row['status'] ?></td>
+                    <td><?= $row['status'] == 'P' ? 'Processing' : 'Resolved' ?></td>
                 </tr>
                 <?php
                   }
                 }
                 else
                 {
-                  echo "NO RECORD FOUND";
+                  echo "";
                 }
               ?>
             </tbody>

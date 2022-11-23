@@ -72,11 +72,11 @@ $data = $authenticated->authDetails()
         </div>
       </div>
       <div class="row">
-        <?php if(!isset($result['upload_image']) == true) :?>
-        <h1 class="attached-image-title"><?php $result['upload_image'] ?></h1>
+        <?php if(isset($result['upload_image']) == NULL ) :?>
+          <h1 class="attached-image-title">No Attachment</h1>
         <?php else: ?>
-        <h1 class="attached-image-title">No Attachment</h1>
-
+          <h1 class="attached-image-title"><?= $result['upload_image'] ?></h1>
+          <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400">
        <?php endif ; ?>
         <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
       </div>

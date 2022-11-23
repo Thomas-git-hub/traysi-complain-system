@@ -18,6 +18,16 @@
   <title>Document</title>
 </head>
 <body>
+<?php
+    include_once("includes/auth.php");
+   
+    // Validation if user is not Logged In
+    include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
+    $authenticated = new AuthenticationController;
+   
+    $authenticated->driver();
+    $data = $authenticated->authDriverDetails();
+?>
 
 <div class="container">
   <div class="d-flex justify-content-center">
@@ -26,35 +36,62 @@
         <div class="d-flex justify-content-start flex-row">
           <a href="index.php"><i class="bi bi-arrow-left"></i></a>
         </div>
+        <?php
+        if(isset($_GET['id']))
+        {
+          $complain_id = validateInput($db->conn, $_GET['id']);
+          $data = new Driver_Controller;
+          $result = $data->complain_details($complain_id);
+          if($result)
+          {
+            ?>
         <div class="d-flex justify-content-start mt-3">
           <h1 class="title-message">Message</h1>&nbsp;
         </div>
         <div class="d-flex justify-content-end flex-row">
-          <h1 class="message-date-time">6:30pm</h1>&nbsp;
-          <h1 class="message-date-time">11/01/2022</h1>
+          <h1 class="message-date-time"><?=$result['time']?></h1>&nbsp;
+          <h1 class="message-date-time"><?=$result['date']?></h1>
         </div>
         <div class="d-flex justify-content-center">
           <div class="card inner-card" style="width: 43rem;">
             <div class="card-body">
-              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small>Peter Griffin</small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small>petergriffin@gmail.com</small></h1>
-              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small>09156748575</small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-person-fill">&nbsp;</i><small><?=$result['fullname']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-google">&nbsp;</i><small><?=$result['email']?></small></h1>
+              <h1 class="h1-view-mes-con"><i class="bi bi-telephone-fill">&nbsp;</i><small><?=$result['contact_no']?></small></h1>
               <h1 class="h1-view-mes-con mt-5"><i class="bi bi-chat-left-text-fill">&nbsp;</i></h1>
-              <h1 class="h1-view-mes-con"><small style="font-weight: normal;">This is a sample message</small></h1>
+              <h1 class="h1-view-mes-con"><small style="font-weight: normal;"><?=$result['others']?></small></h1>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <h1 class="attached-image-title">Attachment</h1>
-        <h1 class="attached-image-title">No Attachment</h1>
-    <!-- NOTE: "No attachement" will show if passenger does not have uploaded image -->
+      <?php if(isset($result['upload_image']) == NULL ) :?>
+          <h1 class="attached-image-title">No Attachment</h1>
+          <!-- NOTE: "No attachement" will show if passenger does not have uploaded image -->
+      <?php else: ?>
+          <h1 class="attached-image-title"><?= $result['upload_image'] ?></h1>
+          <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400">
+       <?php endif ; ?>  
         <!-- <img src="assets/svg/notify.svg" alt="Nature" class="view-message-img" width="600" height="400"> -->
     <!-- NOTE: we are going to use this img tag if user/passenger sends or uploaded image (UNCOMMENT TO VIEW) -->
       </div>
     </div>
   </div>
 </div>
+
+<?php
+      }
+      else
+
+      {
+        echo "<h4> No Record Found</h4>";
+      }
+    }
+    else
+    {
+      echo "<h4> Something went wrong</h4>";
+    }
+?>
 
 
 <!-- modal -->

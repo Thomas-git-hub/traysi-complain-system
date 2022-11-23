@@ -20,12 +20,13 @@
 <body>
 <?php
     include_once("includes/auth.php");
+   
     // Validation if user is not Logged In
     include dirname(__FILE__).'/../includes/Controller/AuthenticationController.php';
     $authenticated = new AuthenticationController;
    
     $authenticated->driver();
-     $data = $authenticated->authDriverDetails();
+    $data = $authenticated->authDriverDetails();
 ?>
 
 <div class="container">
@@ -58,13 +59,29 @@
                 </tr>
             </thead>
             <tbody>
+              <?php
+              $data = new Driver_Controller;
+              $result = $data->ComplainPerDriver();
+               if($result)
+                {
+                  foreach($result as $row)
+                  {
+              ?>
                 <tr> 
-                    <td>John Doe</td>
-                    <td>Foul Word</td>
-                    <td class="data-hidden">sample message</td>
-                    <td><a href="view-message.php"><i class="bi bi-eye-fill"></i></a></td>
-                    <td>11/11/2022</td>
+                    <td><?=$row['fullname']?></td>
+                    <td><?= $row['offense_desc'] ?></td>
+                    <td class="data-hidden"><?= $row['others'] ?></td>
+                    <td><a href="view-message.php?id=<?= $row['id'] ?> "><i class="bi bi-eye-fill"></i></a></td>
+                    <td><?= $row['date'] ?></td>
                 </tr>
+                <?php
+                  }
+                }
+                else
+                {
+                  echo "";
+                } 
+                ?>
             </tbody>
         </table>
     </div>
